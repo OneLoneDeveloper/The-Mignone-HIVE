@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Shrink Test</title>
+  <style>
+    body {
+      margin: 0;
+      background: #eee;
+    }
+
+    .image-container {
+      width: 100%;
+      overflow: hidden; /* hides left part of image */
+    }
+
+    .image-container img {
+      display: block;
+      width: clamp(100%, 150vw, 500px);
+      /* Explanation:
+         - At least 100% of viewport
+         - Normally 150% of viewport
+         - Max 2000px (original-ish size) */
+      height: auto;
+      margin-left: auto; /* keeps it right aligned */
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=2000" alt="Test image">
+  </div>
+</body>
+</html>
