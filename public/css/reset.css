@@ -22,6 +22,9 @@
   --blue-dark: rgb(22, 99, 145);
   --green-dark: rgb(25, 133, 66);
 
+  /* Text Backgrounds */
+  --text-background: rgba(255, 255, 255, 0.6);
+
   /* Background colors */
   --bg-light-yellow: #fffcef;
   --bg-light-purple: #f4e9f8;
@@ -32,21 +35,8 @@
   --green-translucent: rgba(104, 222, 141, 0.5);
 
   /* Typography */
-  --font-primary: 'Poppins', sans-serif;
-  --font-secondary: 'Open Sans', sans-serif;
-
-  /* Base sizes */
-  --font-size-base: 18px;
-  --font-size-large: 20px;
-  --font-size-small: 16px;
-
-  /* Spacing scale */
-  --space-xxs: 0.5rem;
-  --space-xs: 0.75rem;
-  --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 3rem;
-  --space-xl: 5rem;
+  --font-primary: 'Open Sans', sans-serif;
+  --font-secondary: 'Poppins', sans-serif;
 
   /* Gradients */
   --gradient-green: linear-gradient(to bottom right, var(--green), var(--green-alt));
@@ -55,13 +45,40 @@
   --gradient-blue: linear-gradient(to bottom right, var(--blue), var(--blue-alt));
 
   --gradient-all: linear-gradient(to right, var(--yellow), var(--purple), var(--blue), var(--green));
+  --gradient-bg: linear-gradient(to bottom right, var(--bg-light-yellow), var(--bg-light-purple));
 }
 
-.bg-yellow { background: var(--gradient-yellow); }
-.bg-purple { background: var(--gradient-purple); }
-.bg-blue { background: var(--gradient-blue); }
-.bg-green { background: var(--gradient-green); }
+/* TODO - change the names of these classes, and introduce more of them... */
+.bg-yellow-gradient { background: var(--gradient-yellow); }
+.bg-purple-gradient { background: var(--gradient-purple); }
+.bg-blue-gradient { background: var(--gradient-blue); }
+.bg-green-gradient { background: var(--gradient-green); }
 
+.bg-gradient-bg { background: var(--gradient-bg); }
+
+.bg-yellow-translucent { background: var(--yellow-translucent); }
+.bg-purple-translucent { background: var(--purple-translucent); }
+.bg-blue-translucent { background: var(--blue-translucent); }
+.bg-green-translucent { background: var(--green-translucent); }
+
+.border-yellow { border: 2px solid var(--yellow); }
+.border-purple { border: 2px solid var(--purple); }
+.border-blue { border: 2px solid var(--blue); }
+.border-green { border: 2px solid var(--green); }
+
+.outline-yellow:focus { border-color: var(--yellow); box-shadow: 0 0 0.25rem 0.25rem var(--yellow); }
+.outline-purple:focus { border-color: var(--purple); box-shadow: 0 0 0.25rem 0.25rem var(--purple); }
+.outline-blue:focus { border-color: var(--blue); box-shadow: 0 0 0.25rem 0.25rem var(--blue); }
+.outline-green:focus { border-color: var(--green); box-shadow: 0 0 0.25rem 0.25rem var(--green); }
+
+.color-yellow { color: var(--yellow); }
+.color-purple { color: var(--purple); }
+.color-blue { color: var(--blue); }
+.color-green { color: var(--green); }
+
+.max-width-1200 { max-width: 1200px; }
+.max-width-900 { max-width: 900px; }
+.max-width-600 { max-width: 600px; }
 
 /* ===============================
    CSS RESET (modernized)
@@ -70,96 +87,123 @@
 /* Reset box-sizing */
 *, *::before, *::after { box-sizing: border-box; }
 
-/* Remove default margins/padding */
+/* Remove default margins/padding so Bootstrap utilities control spacing */
 * { margin: 0; padding: 0; }
 
 /* Set base font + smoothing */
-html, body {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-base);
-  color: var(--black);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Remove Bootstrap’s container restrictions */
-.container, .container-fluid, .row, .col {
-  padding: 0;
-  margin: 0;
-  max-width: 100%;
-}
+html, body { font-family: var(--font-primary); color: var(--black); }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-secondary);
-  font-weight: 600;
-  line-height: 1.3;
-  color: var(--dark-grey);
-}
-
-/* Paragraphs */
-/* p {
-  margin-bottom: var(--space-sm);
-  font-size: var(--font-size-large);
-} */
-
-/* Lists */
-/* ul, ol {
-  padding-left: var(--space-md);
-  margin-bottom: var(--space-sm);
-} */
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-secondary); font-weight: 600; color: var(--dark-grey); }
 
 /* Links */
-a {
-  color: var(--blue);
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
+a { color: var(--black); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-/* Buttons (override Bootstrap defaults) */
-button, .btn {
-  font-family: var(--font-primary);
-  /* font-size: var(--font-size-base); */
-  /* padding: var(--space-sm) var(--space-md); */
-  /* border-radius: 0.5rem; */
-  border: none;
-  cursor: pointer;
-}
+/* Buttons (do not change colors) */
+button, .btn { font-family: var(--font-primary); border: none; cursor: pointer; }
 
 /* Inputs & forms */
-input, textarea, select {
-  font-family: var(--font-primary);
-  /* font-size: var(--font-size-base); */
-  /* padding: var(--space-sm); */
-  border: 1px solid var(--dark-grey);
-  border-radius: 0.3rem;
-  width: 100%;
-  /* margin-bottom: var(--space-sm); */
-}
+input, textarea, select { font-family: var(--font-primary); }
 
-/* Global spacing for all block-level elements */
-/* section, article, div, header, footer, main, aside {
-  padding: var(--space-md);
-  margin-bottom: var(--space-md);
-} */
 
-/* Tables */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: var(--space-md);
-}
-th, td {
-  border: 1px solid var(--dark-grey);
-  padding: var(--space-sm);
-}
 
-/* Images */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Additonal Bootstrap Spacing */
+
+/* ===== PADDING ===== */
+.p-6  { padding: 4rem !important; }
+.pt-6 { padding-top: 4rem !important; }
+.pb-6 { padding-bottom: 4rem !important; }
+.ps-6 { padding-left: 4rem !important; }
+.pe-6 { padding-right: 4rem !important; }
+.px-6 { padding-left: 4rem !important; padding-right: 4rem !important; }
+.py-6 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+
+.p-7  { padding: 5rem !important; }
+.pt-7 { padding-top: 5rem !important; }
+.pb-7 { padding-bottom: 5rem !important; }
+.ps-7 { padding-left: 5rem !important; }
+.pe-7 { padding-right: 5rem !important; }
+.px-7 { padding-left: 5rem !important; padding-right: 5rem !important; }
+.py-7 { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+
+.p-8  { padding: 6rem !important; }
+.pt-8 { padding-top: 6rem !important; }
+.pb-8 { padding-bottom: 6rem !important; }
+.ps-8 { padding-left: 6rem !important; }
+.pe-8 { padding-right: 6rem !important; }
+.px-8 { padding-left: 6rem !important; padding-right: 6rem !important; }
+.py-8 { padding-top: 6rem !important; padding-bottom: 6rem !important; }
+
+.p-9  { padding: 7rem !important; }
+.pt-9 { padding-top: 7rem !important; }
+.pb-9 { padding-bottom: 7rem !important; }
+.ps-9 { padding-left: 7rem !important; }
+.pe-9 { padding-right: 7rem !important; }
+.px-9 { padding-left: 7rem !important; padding-right: 7rem !important; }
+.py-9 { padding-top: 7rem !important; padding-bottom: 7rem !important; }
+
+.p-10  { padding: 8rem !important; }
+.pt-10 { padding-top: 8rem !important; }
+.pb-10 { padding-bottom: 8rem !important; }
+.ps-10 { padding-left: 8rem !important; }
+.pe-10 { padding-right: 8rem !important; }
+.px-10 { padding-left: 8rem !important; padding-right: 8rem !important; }
+.py-10 { padding-top: 8rem !important; padding-bottom: 8rem !important; }
+
+/* ===== MARGIN ===== */
+.m-6  { margin: 4rem !important; }
+.mt-6 { margin-top: 4rem !important; }
+.mb-6 { margin-bottom: 4rem !important; }
+.ms-6 { margin-left: 4rem !important; }
+.me-6 { margin-right: 4rem !important; }
+.mx-6 { margin-left: 4rem !important; margin-right: 4rem !important; }
+.my-6 { margin-top: 4rem !important; margin-bottom: 4rem !important; }
+
+.m-7  { margin: 5rem !important; }
+.mt-7 { margin-top: 5rem !important; }
+.mb-7 { margin-bottom: 5rem !important; }
+.ms-7 { margin-left: 5rem !important; }
+.me-7 { margin-right: 5rem !important; }
+.mx-7 { margin-left: 5rem !important; margin-right: 5rem !important; }
+.my-7 { margin-top: 5rem !important; margin-bottom: 5rem !important; }
+
+.m-8  { margin: 6rem !important; }
+.mt-8 { margin-top: 6rem !important; }
+.mb-8 { margin-bottom: 6rem !important; }
+.ms-8 { margin-left: 6rem !important; }
+.me-8 { margin-right: 6rem !important; }
+.mx-8 { margin-left: 6rem !important; margin-right: 6rem !important; }
+.my-8 { margin-top: 6rem !important; margin-bottom: 6rem !important; }
+
+.m-9  { margin: 7rem !important; }
+.mt-9 { margin-top: 7rem !important; }
+.mb-9 { margin-bottom: 7rem !important; }
+.ms-9 { margin-left: 7rem !important; }
+.me-9 { margin-right: 7rem !important; }
+.mx-9 { margin-left: 7rem !important; margin-right: 7rem !important; }
+.my-9 { margin-top: 7rem !important; margin-bottom: 7rem !important; }
+
+.m-10  { margin: 8rem !important; }
+.mt-10 { margin-top: 8rem !important; }
+.mb-10 { margin-bottom: 8rem !important; }
+.ms-10 { margin-left: 8rem !important; }
+.me-10 { margin-right: 8rem !important; }
+.mx-10 { margin-left: 8rem !important; margin-right: 8rem !important; }
+.my-10 { margin-top: 8rem !important; margin-bottom: 8rem !important; }
