@@ -1,0 +1,165 @@
+/* ===============================
+   RESET + VARIABLES
+   =============================== */
+:root {
+  /* Accent colors */
+  --yellow: rgb(255, 215, 96);
+  --yellow-alt: rgb(253, 193, 98);
+  --purple: rgb(191, 147, 220);
+  --purple-alt: rgb(203, 122, 220);
+  --blue: rgb(83, 186, 241);
+  --blue-alt: rgb(109, 232, 236);
+  --green: rgb(104, 222, 141);
+  --green-alt: rgb(144, 215, 125);
+
+  /* Text colors */
+  --black: #1a1a1a;
+  --dark-grey: #333333;
+  --white: #f9f9f9;
+
+  --yellow-dark: rgb(179, 150, 39);
+  --purple-dark: rgb(108, 62, 143);
+  --blue-dark: rgb(22, 99, 145);
+  --green-dark: rgb(25, 133, 66);
+
+  /* Background colors */
+  --bg-light-yellow: #fffcef;
+  --bg-light-purple: #f4e9f8;
+
+  --yellow-translucent: rgba(255, 215, 96, 0.5);
+  --purple-translucent: rgba(191, 147, 220, 0.5);
+  --blue-translucent: rgba(83, 186, 241, 0.5);
+  --green-translucent: rgba(104, 222, 141, 0.5);
+
+  /* Typography */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
+
+  /* Base sizes */
+  --font-size-base: 18px;
+  --font-size-large: 20px;
+  --font-size-small: 16px;
+
+  /* Spacing scale */
+  --space-xxs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+
+  /* Gradients */
+  --gradient-green: linear-gradient(to bottom right, var(--green), var(--green-alt));
+  --gradient-yellow: linear-gradient(to bottom right, var(--yellow), var(--yellow-alt));
+  --gradient-purple: linear-gradient(to bottom right, var(--purple), var(--purple-alt));
+  --gradient-blue: linear-gradient(to bottom right, var(--blue), var(--blue-alt));
+
+  --gradient-all: linear-gradient(to right, var(--yellow), var(--purple), var(--blue), var(--green));
+}
+
+.bg-yellow { background: var(--gradient-yellow); }
+.bg-purple { background: var(--gradient-purple); }
+.bg-blue { background: var(--gradient-blue); }
+.bg-green { background: var(--gradient-green); }
+
+
+/* ===============================
+   CSS RESET (modernized)
+   =============================== */
+
+/* Reset box-sizing */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Remove default margins/padding */
+* { margin: 0; padding: 0; }
+
+/* Set base font + smoothing */
+html, body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  color: var(--black);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove Bootstrap’s container restrictions */
+.container, .container-fluid, .row, .col {
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--dark-grey);
+}
+
+/* Paragraphs */
+/* p {
+  margin-bottom: var(--space-sm);
+  font-size: var(--font-size-large);
+} */
+
+/* Lists */
+/* ul, ol {
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-sm);
+} */
+
+/* Links */
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons (override Bootstrap defaults) */
+button, .btn {
+  font-family: var(--font-primary);
+  /* font-size: var(--font-size-base); */
+  /* padding: var(--space-sm) var(--space-md); */
+  /* border-radius: 0.5rem; */
+  border: none;
+  cursor: pointer;
+}
+
+/* Inputs & forms */
+input, textarea, select {
+  font-family: var(--font-primary);
+  /* font-size: var(--font-size-base); */
+  /* padding: var(--space-sm); */
+  border: 1px solid var(--dark-grey);
+  border-radius: 0.3rem;
+  width: 100%;
+  /* margin-bottom: var(--space-sm); */
+}
+
+/* Global spacing for all block-level elements */
+/* section, article, div, header, footer, main, aside {
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+} */
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-md);
+}
+th, td {
+  border: 1px solid var(--dark-grey);
+  padding: var(--space-sm);
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

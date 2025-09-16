@@ -1,0 +1,244 @@
+/* ----------------------------------------- Hero Section ----------------------------------------- */
+.hero {
+  position: relative;
+  margin-top: 80px;
+  min-height: calc(100vh - 80px);
+  overflow: hidden;
+  background-image: url('/images/spline.webp');
+  background-size: 90% 110%;
+  background-position: 70% center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.hero-text-container { max-width: 600px; position: relative; z-index: 3; margin-left: 5rem; 
+    padding: 2rem;
+    /* backdrop-filter: blur(10px); */
+    /* -webkit-backdrop-filter: blur(10px); */
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 0.375rem;
+  }
+
+.hex-decorative {
+  z-index: 2;
+  position: absolute;
+  opacity: 0.95;
+}
+
+
+.hex-1  { left: 3%;  top: 6%;  width: clamp(105px, 6vw, 115px);  background: var(--gradient-yellow); }
+.hex-2  { left: 10%; top: 11%; width: clamp(77px, 4.5vw, 85px); background: var(--gradient-purple); }
+
+.hex-3  { left: 39%; top: 18%; width: clamp(171px, 10vw, 190px); background: var(--gradient-green); }
+.hex-4  { left: 48%; top: 9%;  width: clamp(225px, 13vw, 250px); background-image: url('/images/1.jpg'); background-size: cover; }
+
+.hex-5  { left: 73%; top: 21%; width: clamp(80px, 5.5vw, 90px); background: var(--gradient-purple); }
+.hex-6  { left: 68%; top: 30%; width: clamp(100px, 7.5vw, 130px); background: var(--gradient-blue); }
+.hex-7  { left: 61%; top: 39%; width: clamp(120px, 9vw, 150px);  background: var(--gradient-yellow); }
+
+.hex-8  { left: 57%; top: 68%; width: clamp(216px, 12vw, 240px); background-image: url('/images/2.jpg'); background-size: cover; }
+.hex-9  { left: 68%; top: 79%; width: clamp(162px, 9vw, 180px);  background: var(--gradient-purple); }
+
+.hex-10 { left: 83%; top: 56%; width: clamp(189px, 10.5vw, 210px); background-image: url('/images/3.jpg'); background-size: cover; }
+.hex-11 { left: 88%; top: 43%; width: clamp(131px, 7.2vw, 145px);  background: var(--gradient-green); }
+.hex-12 { left: 80%; top: 40%; width: clamp(144px, 10vw, 165px);   background-image: url('/images/4.jpg'); background-size: cover; }
+
+.hex-13 { right: 7%; top: 9%;  width: clamp(180px, 15vw, 200px); background-image: url('/images/Logo.svg'); background-size: cover; }
+
+.decoration-1 { z-index: 1; width: 20%; position: absolute; left: 15%; bottom: 0; }
+
+
+@media (max-width: 900px) {
+  .hero { background-image: url('/images/spline-sm.webp'); }
+  .hero-text-container { margin-left: 0; padding: 1rem;}
+  
+  .hex-4  { display: none; }
+  .hex-11 { display: none; }
+
+  /* 1 */
+  .hex-8  { left: 5%; top: 70%; width: 140px; }
+  /* 2 */
+  .hex-12 { left: 19%; top: 76%; width: 130px; }
+  
+  /* 3 */
+  .hex-1  { left: 64%;  top: 86%;  width: 90px; }
+  /* 4 */
+  .hex-3  { left: 74%; top: 85%; width: 70px; }  
+  /* 5 */
+  .hex-9  { left: 82%; top: 83%; width: 50px; }
+  
+  /* 6 */
+  .hex-7  { left: 46%; top: 44%; width: 150px; }
+  /* 7 */
+  .hex-6  { left: 30%; top: 41%; width: 130px; }
+  /* 8 */
+  .hex-5  { left: 20%; top: 35%; width: 100px; }
+
+  /* 9 */
+  .hex-10 { left: 4%; top: 4%; width: 140px; }
+  /* 10 */
+  .hex-2  { left: 20%; top: 4%; width: 85px; }
+
+  /* 11 */
+  .hex-13 { right: 14%; top: 4%;  width: 150px; }
+
+  .decoration-1 { left: 9%; }
+}
+
+
+
+/* ----------------------------------------- Acronym Section ----------------------------------------- */
+
+.Activities { max-width: 1200px; margin: auto;}
+.card {background: none; border: none;}
+
+
+/* ----------------------------------------- Acronym Section ----------------------------------------- */
+.hex-container { max-width: 1000px; margin: 0 auto; }
+.hex-row { display: flex; }
+.hex-row h3 { margin: 0; color: var(--white); font-size: 8rem; }
+
+.hex-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  flex: 1;
+  margin-left: -3%;
+}
+.hex-btn:first-child { margin-left: 0; }
+.hex-btn div { width: 100%; }
+
+.hexagon.active p { display: none; }
+
+.explanation {
+  opacity: 0;
+  transition: opacity 0.5s;
+  display: none;
+}
+.explanation.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Gradient utility classes */
+.hex-yellow { background: var(--gradient-yellow); }
+.hex-purple { background: var(--gradient-purple); }
+.hex-blue   { background: var(--gradient-blue); }
+.hex-green  { background: var(--gradient-green); }
+
+.h-expl h3 { color: var(--yellow-dark); }
+.i-expl h3 { color: var(--purple-dark); }
+.v-expl h3 { color: var(--blue-dark); }
+.e-expl h3 { color: var(--green-dark); }
+
+
+.hexagon.active {
+  position: relative;
+  overflow: hidden;
+}
+
+.hexagon.active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.3) 50%,
+    transparent 70%
+  );
+  background-size: 200% 200%;
+  animation: shimmerWave 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmerWave {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@media (max-width: 768px) { .hex-row h3 { margin: 0; color: var(--white); font-size: 4rem; } }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hive-table {
+  border-collapse: separate;  /* important: disables collapse mode */
+  border-spacing: .5rem 0;       /* sets horizontal + vertical gaps */
+  max-width: 1200px;
+  margin: auto;
+}
+
+.hive-table th {border-radius: 25px 25px 0 0;}
+.hive-table .last-row td {border-radius: 0 0 25px 25px;}
+
+
+/* th, td { border: none; } */
+.hive-table,
+.hive-table th,
+.hive-table td {
+  border: 0 !important;
+  padding: 2rem 1rem;
+}
+.hive-table > :not(caption) > * > * {
+  border-bottom-width: 0 !important; /* overrides Bootstrap row separators */
+  background: none;
+}
+
+/* Column gradients: <col> can't do gradients reliably, so target cells */
+/* 1st column is the row header (age groups) – keep it uncolored and dark */
+.hive-table thead th:nth-child(2),
+.hive-table tbody td:nth-child(2) {
+  background: var(--yellow-translucent);
+  margin: 10px;
+}
+.hive-table thead th:nth-child(3),
+.hive-table tbody td:nth-child(3) {
+  background: var(--gradient-purple);
+}
+.hive-table thead th:nth-child(4),
+.hive-table tbody td:nth-child(4) {
+  background: var(--gradient-blue);
+}
+.hive-table thead th:nth-child(5),
+.hive-table tbody td:nth-child(5) {
+  background: var(--gradient-green);
+}
+
+/* Keep the row header (age group) readable */
+.hive-table tbody th[scope="row"] {
+  color: #212529; /* Bootstrap body color */
+  white-space: nowrap;
+  /* text-align: end; */
+}
+
+.hive-table-mobile button { border-radius: 10px 10px 0 0 !important; font-size: var(--font-size-small);}
+.nav-tabs .nav-link { border: none; border-radius: 0; }
