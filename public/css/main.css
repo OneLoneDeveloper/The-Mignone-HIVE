@@ -1,8 +1,8 @@
 /* ----------------------------------------- Hero Section ----------------------------------------- */
 .hero {
   position: relative;
-  margin-top: 80px; /* keep exact offset for fixed navbar */
-  min-height: calc(100vh - 80px);
+  margin-top: 88px;
+  min-height: calc(100vh - 88px);
   overflow: hidden;
   background-image: url('/images/spline.webp');
   background-size: 90% 110%;

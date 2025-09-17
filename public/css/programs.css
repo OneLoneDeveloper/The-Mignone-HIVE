@@ -1,0 +1,110 @@
+:root {
+  /* Scale factor (just change this to resize everything) */
+  --scale: 1.5;
+
+  /* Base size of hexagon (side length) */
+  --programs-side: calc(60px * var(--scale));
+
+  /* Derived dimensions */
+  --programs-long-diameter: calc(var(--programs-side) * 2);            /* flat-to-flat width */
+  --programs-short-diameter: calc(var(--programs-side) * 1.732);       /* point-to-point height (≈ sqrt(3)) */
+  --programs-protrusion: calc(var(--programs-side) * 0.5);             /* horizontal overlap */
+  --programs-gap: calc(5px * var(--scale));
+}
+
+.programs-hexagon-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, calc(var(--programs-side) + var(--programs-protrusion)));
+  gap: var(--programs-gap);
+  margin-bottom: calc(var(--programs-short-diameter) / 2);
+}
+
+.programs-hexagon-grid > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.programs-hexagon-grid > div > div {
+  width: var(--programs-long-diameter);
+  height: var(--programs-short-diameter);
+  clip-path: polygon(0% 50%, 25% 100%, 75% 100%, 100% 50%, 75% 0%, 25% 0%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  /* border: 2px solid black; */
+}
+
+/* Offset for odd rows */
+.programs-hexagon-grid > div:nth-of-type(even) { top: calc((var(--programs-short-diameter) + var(--programs-gap)) / 2); }
+
+@media (max-width: 991px) { .programs-hexagon-grid { grid-template-columns: repeat(4, calc(var(--programs-side) + var(--programs-protrusion))); } }
+@media (max-width: 768px) { .programs-hexagon-grid { grid-template-columns: repeat(2, calc(var(--programs-side) + var(--programs-protrusion))); } }
+
+
+
+/* Lightbox overlay */
+.lightbox {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 5000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Lightbox image */
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  border-radius: 4px;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Close button */
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Prev/Next arrows */
+.lightbox .prev,
+.lightbox .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.lightbox .prev { left: 20px; }
+.lightbox .next { right: 20px; }
+
+.lightbox .prev:hover,
+.lightbox .next:hover {
+  color: #f1c40f;
+}
