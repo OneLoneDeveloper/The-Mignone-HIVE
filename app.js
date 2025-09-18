@@ -17,5 +17,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => { res.render("pages/index", { title: "The Mignone HIVE" }); });
 app.get("/programs", (req, res) => { res.render("pages/programs", { title: "Programs" }); });
 app.get("/about", (req, res) => { res.render("pages/about", { title: "about" }); });
+app.get("/contact", (req, res) => { res.render("pages/contact", { title: "contact" }); });
 
 app.listen(3000, () => console.log("Server running on http://localhost:3000"));
