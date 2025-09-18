@@ -44,7 +44,7 @@
   --gradient-purple: linear-gradient(to bottom right, var(--purple), var(--purple-alt));
   --gradient-blue: linear-gradient(to bottom right, var(--blue), var(--blue-alt));
 
-  --gradient-all: linear-gradient(to right, var(--yellow), var(--purple), var(--blue), var(--green));
+  --gradient-all: linear-gradient(to bottom, var(--yellow), var(--purple), var(--blue), var(--green));
   --gradient-bg: linear-gradient(to bottom right, var(--bg-light-yellow), var(--bg-light-purple));
 }
 
@@ -54,6 +54,7 @@
 .bg-blue-gradient { background: var(--gradient-blue); }
 .bg-green-gradient { background: var(--gradient-green); }
 
+.bg-all-gradient { background: var(--gradient-all); }
 .bg-gradient-bg { background: var(--gradient-bg); }
 
 .bg-yellow-translucent { background: var(--yellow-translucent); }
