@@ -2,96 +2,107 @@
 <% title = 'Contact Us' %>
 <% styles = ['/css/contact.css'] %>
 
-<section class="py-8 px-3 px-sm-4 px-md-5" style="margin-top:88px;">
-  <div class="max-width-1200 mx-auto">
+<section class="contact py-8 px-3 px-sm-4 px-md-5" style="margin-top:88px;">
+  <div class="mx-auto max-width-1200">
 
-    <!-- Header -->
-    <div class="mb-5 text-center">
-      <h2 class="fw-bold">Get in Touch</h2>
-      <p class="text-muted">We’re here to answer your questions and guide you through our programs.</p>
+    <!-- Headline -->
+    <div class="mb-4">
+      <h2 class="mb-2">Get in Touch with the HIVE</h2>
+      <p class="mb-0">We’re here to answer your questions and guide you through our programs.</p>
     </div>
 
     <div class="row g-5">
       <!-- Left Column: Contact Form -->
       <div class="col-lg-7">
-        <div class="card p-4 shadow-sm">
-          <h4 class="mb-3">Send Us a Message</h4>
-          <form>
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Your Full Name">
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-            </div>
-            <div class="mb-3">
-              <label for="phone" class="form-label">Phone</label>
-              <input type="tel" class="form-control" id="phone" placeholder="+1 (234) 567-890">
-            </div>
-            <div class="mb-3">
-              <label for="subject" class="form-label">Subject</label>
-              <select class="form-select" id="subject">
-                <option selected disabled>Select a topic</option>
-                <option value="general">General Inquiry</option>
-                <option value="programs">Programs & Classes</option>
-                <option value="partnership">Partnerships</option>
-                <option value="support">Support</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">Message</label>
-              <textarea class="form-control" id="message" rows="5" placeholder="Write your message here..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
+        <h3 class="fw-bold mb-3">Send us a message</h3>
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control border-yellow outline-yellow" id="name" placeholder="Your Full Name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control border-purple outline-purple" id="email" placeholder="you@example.com" required>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control border-blue outline-blue" id="phone" placeholder="+1 (234) 567-890">
+          </div>
+          <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <select class="form-select border-green outline-green" id="subject">
+              <option selected disabled>Select a topic</option>
+              <option value="general">General Inquiry</option>
+              <option value="programs">Programs & Classes</option>
+              <option value="partnership">Partnerships</option>
+              <option value="support">Support</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control border-yellow outline-yellow" id="message" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn bg-green-gradient">Send Message</button>
+        </form>
       </div>
 
-      <!-- Right Column: Info + Map -->
+      <!-- Right Column: Info -->
       <div class="col-lg-5">
         <!-- Contact Info -->
-        <div class="mb-4">
-          <h5 class="fw-bold">Contact Information</h5>
-          <p><i class="bi bi-telephone"></i> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-          <p><i class="bi bi-envelope"></i> <a href="mailto:info@hive.org">info@hive.org</a></p>
-          <p><i class="bi bi-geo-alt"></i> 123 Hive Street, Learning City, CA</p>
+        <h3 class="mb-3">Contact Information</h3>
+        <p class="mb-2"><i class="bi bi-telephone"></i> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+        <p class="mb-2"><i class="bi bi-envelope"></i> <a href="mailto:info@hive.org">info@hive.org</a></p>
+        <p class="mb-4"><i class="bi bi-geo-alt"></i> 123 Hive Street, Learning City, CA</p>
+
+        <!-- Social Links -->
+        <h3 class="fw-bold mb-3 mt-4">Connect with us</h3>
+        <div class="d-flex gap-4">
+          <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="color-yellow bi bi-linkedin fs-2"></i></a>
+          <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="color-purple bi bi-instagram fs-2"></i></a>
+          <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok"><i class="color-blue bi bi-tiktok fs-2"></i></a>
+          <a href="https://www.x.com" target="_blank" aria-label="X"><i class="color-green bi bi-twitter-x fs-2"></i></a>
         </div>
 
         <!-- Map -->
-        <div class="mb-4">
-          <h5 class="fw-bold">Find Us</h5>
-          <div class="ratio ratio-4x3 mb-2">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18..." 
-              style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-          <a href="https://maps.google.com?q=123+Hive+Street+Learning+City+CA" target="_blank">Get Directions</a>
+        <h3 class="fw-bold mb-3 mt-4">Find Us</h3>
+        <div class="ratio ratio-4x3 mb-2 rounded-4 overflow-hidden">
+          <iframe
+            src="https://www.google.com/maps?q=1750+E+Palomar+St+Suite+7,+Chula+Vista,+CA+91913&output=embed"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
+        <a href="https://maps.google.com?q=1750+E+Palomar+St+Suite+7,+Chula+Vista,+CA+91913" target="_blank">
+          Get Directions
+        </a>
 
-        <!-- Hours -->
-        <div class="mb-4">
-          <h5 class="fw-bold">Business Hours</h5>
-          <ul class="list-unstyled">
-            <li>Mon – Fri: 9:00 AM – 6:00 PM</li>
-            <li>Saturday: 10:00 AM – 4:00 PM</li>
-            <li>Sunday: Closed</li>
-          </ul>
-        </div>
-
-        <!-- Social -->
-        <div class="mb-4">
-          <h5 class="fw-bold">Follow Us</h5>
-          <a href="#" class="me-3"><i class="bi bi-linkedin fs-4"></i></a>
-          <a href="#" class="me-3"><i class="bi bi-instagram fs-4"></i></a>
-          <a href="#" class="me-3"><i class="bi bi-tiktok fs-4"></i></a>
-          <a href="#"><i class="bi bi-twitter-x fs-4"></i></a>
-        </div>
       </div>
+    </div>
+
+    <div class="row g-5">
+
+      <div class="col-lg-5 order-lg-2">
+        <!-- Hours -->
+        <h3 class="fw-bold">Business Hours</h3>
+        <ul class="list-unstyled">
+          <li>Mon – Fri: 9:00 AM – 6:00 PM</li>
+          <li>Saturday: 10:00 AM – 4:00 PM</li>
+          <li>Sunday: Closed</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-7 order-lg-1">
+        <!-- Accessibility -->
+          <h3 class="fw-bold">Accessibility Information</h3>
+          <p>Our facilities are wheelchair accessible, with accessible parking spaces near the entrance. Public transit stops are located within a 5-minute walk. If you need additional accommodations, please let us know in advance so we can assist you.</p>
+      </div>
+
     </div>
 
     <!-- FAQ -->
     <div class="mt-5">
-      <h4 class="fw-bold mb-3">Frequently Asked Questions</h4>
+      <h3 class="fw-bold mb-3">Frequently Asked Questions</h3>
       <div class="accordion" id="faqAccordion">
         <div class="accordion-item">
           <h2 class="accordion-header" id="faq1">
@@ -132,10 +143,6 @@
       </div>
     </div>
 
-    <!-- Accessibility -->
-    <div class="mt-5">
-      <h4 class="fw-bold mb-3">Accessibility Information</h4>
-      <p>Our facilities are wheelchair accessible, with accessible parking spaces near the entrance. Public transit stops are located within a 5-minute walk. If you need additional accommodations, please let us know in advance so we can assist you.</p>
-    </div>
+    
   </div>
 </section>
