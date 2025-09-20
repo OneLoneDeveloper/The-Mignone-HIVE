@@ -1,2 +1,4 @@
 دري حدود تا فوكس ارياس
-دري خط ملون تا كوتناكت و مبادلي حقول كو خا بارا خا بارا مدور
+
+2- main.css - Fix clamp width
+3- index.ejs - figure out hero text spaces

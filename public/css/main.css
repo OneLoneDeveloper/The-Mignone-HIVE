@@ -153,3 +153,5 @@
   background-position: left;
   background-repeat: no-repeat;  
 }
+
+.bee-sleeping-decoration { position: absolute; right: 0%; bottom: 0; width: clamp(130px, 10vw, 190px); }
