@@ -2,14 +2,17 @@
 <% title = 'Home' %>
 <% styles = ['/css/main.css'] %>
 
-<!-- Hero -->
+<!-- ============================================== Hero ============================================== -->
+<!-- ================================================================================================== -->
 <section class="hero">
-  <div class="hero-text-container p-3 p-md-4 ms-lg-5">
+  <div class="hero-text-container max-width-900 py-10 px-3 px-sm-4 px-md-5 ms-lg-5 rounded-4">
       <h1 class="display-5 mb-3">Connecting hearts, minds, and actions for a better world.</h1>
-      <p class="lead mb-3">We're not waiting for a better world, we're learning how to build one. One connection, one action at a time.</p>
-      <h2 class="fs-4 mb-0">Belong. Explore. Grow. Contribute.</h2>
+      <p class="lead mb-3">Workshops, classes, and Day Camps that spark curiosity, build real-world skills, and give back to our community.</p>
+      <!-- <h2 class="fs-4 mb-0">Belong. Explore. Grow. Contribute.</h2> -->
+      <a href="/programs" class="btn bg-yellow-gradient btn-lg">Explore Programs</a>
   </div>
 
+  <!-- Decorations -->
   <div class="hexagon hexagon-upright hexagon-float hex-decorative hex-1"></div>
   <div class="hexagon hexagon-upright hexagon-float hex-decorative hex-2"></div>
   <div class="hexagon hexagon-upright hex-decorative hex-3"></div>
@@ -27,14 +30,15 @@
   <img src="/images/Decoration 1.webp" alt="Decoration" class="decoration-1">
 </section>
 
-
-
 <!-- =========================================== Activities =========================================== -->
-<section class="py-8 px-3 px-sm-4 px-md-5 bg-gradient-bg">
+<!-- ================================================================================================== -->
+<section class="activities py-10 px-3 px-sm-4 px-md-5 bg-gradient-bg">
   <div class="max-width-1200 mx-auto">
+
     <!-- Intro sentence -->
     <div class="mb-4">
-      <h2 class="fw-bold">We provide engaging programs that inspire learning, creativity, and growth for all ages.</h2>
+      <h2 class="fw-bold">Programs that teach and nurture.</h2>
+      <p class="lead mb-3 mb-md-4">Equip yourself with valuable skills to succeed in your life. Discover your full potential and become who you want to be.</p>
     </div>
 
     <!-- Cards row -->
@@ -42,11 +46,11 @@
       <!-- Teaching card -->
       <div class="col-sm-6 col-lg-4">
         <div class="card h-100">
-          <img src="/images/teach.webp" class="card-img-top" alt="Teaching">
+          <img src="/images/teach.webp" class="card-img-top" alt="Bees engaged in academic learning.">
           <div class="card-body d-flex flex-column">
-            <h3 class="card-title mb-2">Teaching</h3>
-            <p class="card-text mb-3">Hands-on lessons designed to spark curiosity and build strong academic foundations.</p>
-            <a href="/programs" class="mt-auto btn bg-yellow-gradient">Learn More</a>
+            <h3 class="card-title mb-2">Academic Learning</h3>
+            <p class="card-text mb-3">Unique lessons that build strong foundations and real-world thinking.</p>
+            <a href="/programs" class="mt-auto btn btn-lg bg-yellow-gradient">Learn More</a>
           </div>
         </div>
       </div>
@@ -56,20 +60,20 @@
         <div class="card h-100">
           <img src="/images/playing.webp" class="card-img-top" alt="Playing">
           <div class="card-body d-flex flex-column">
-            <h3 class="card-title mb-2">Playing</h3>
-            <p class="card-text mb-3">Interactive activities that make learning fun, especially for younger children.</p>
+            <h3 class="card-title mb-2">Play &amp; Joy</h3>
+            <p class="card-text mb-3">Interactive and fun experiences that make learning joyful and fuel creativity.</p>
             <a href="/programs" class="mt-auto btn bg-purple-gradient">Learn More</a>
           </div>
         </div>
       </div>
 
-      <!-- Social-Emotional Learning card -->
+      <!-- Relationships card -->
       <div class="col-sm-6 col-lg-4 mx-auto">
         <div class="card h-100">
           <img src="/images/Talking.webp" class="card-img-top" alt="Social Emotional Learning">
           <div class="card-body d-flex flex-column">
-            <h3 class="card-title mb-2">Social-Emotional Learning</h3>
-            <p class="card-text mb-3">Building empathy, resilience, and collaboration to support lifelong well-being.</p>
+            <h3 class="card-title mb-2">Relationships &amp; Belonging</h3>
+            <p class="card-text mb-3">Practices that strengthen connection, communication, and community.</p>
             <a href="/programs" class="mt-auto btn bg-blue-gradient">Learn More</a>
           </div>
         </div>
@@ -78,37 +82,34 @@
   </div>
 </section>
 
-
-
-
-
-<!-- =========================================== Acronym =========================================== -->
-<section class="acronym py-8 px-3 px-sm-4 px-md-5">
+<!-- ============================================= Acronym ============================================ -->
+<!-- ================================================================================================== -->
+<section class="acronym py-10 px-3 px-sm-4 px-md-5">
   <div class="max-width-1200 mx-auto">
     <div class="max-width-600 mb-4">
-      <h2 class="mb-2">We create experiences, opportunities, and connections.</h2>
-      <p class="mb-0">To empower learners and communities. Discover what the HIVE stands for, each letter reveals a core value.</p>
+      <h2 class="mb-2">Core values of the HIVE.</h2>
+      <p class="mb-0">Discover what the HIVE stands for, each letter reveals a core value.</p>
     </div>
 
   <div class="max-width-900 mx-auto my-5">
-    <div class="hex-row">
+    <div class="hex-row d-flex">
       <button class="hex-btn" data-target="h-expl">
-        <div class="hexagon hexagon-upright hexagon-rotate d-flex justify-content-center align-items-center flex-column active hex-yellow">
+        <div class="hexagon hexagon-upright hexagon-rotate d-flex justify-content-center align-items-center flex-column active bg-yellow-gradient">
           <h3>H</h3>
         </div>
       </button>
       <button class="hex-btn" data-target="i-expl">
-        <div class="hexagon hexagon-upright hexagon-rotate d-flex justify-content-center align-items-center flex-column hex-purple">
+        <div class="hexagon hexagon-upright hexagon-rotate d-flex justify-content-center align-items-center flex-column bg-purple-gradient">
           <h3>I</h3>
         </div>
       </button>
       <button class="hex-btn" data-target="v-expl">
-        <div class="hexagon hexagon-upright hexagon-rotate d-flex justify-content-center align-items-center flex-column hex-blue">
+        <div class="hexagon hexagon-upright hexagon-rotate d-flex justify-content-center align-items-center flex-column bg-blue-gradient">
           <h3>V</h3>
         </div>
       </button>
       <button class="hex-btn" data-target="e-expl">
-        <div class="hexagon hexagon-upright hexagon-rotate d-flex justify-content-center align-items-center flex-column hex-green">
+        <div class="hexagon hexagon-upright hexagon-rotate d-flex justify-content-center align-items-center flex-column bg-green-gradient">
           <h3>E</h3>
         </div>
       </button>
@@ -116,17 +117,17 @@
   </div>
   
   <!-- Explanations -->
-  <div class="explanation h-expl active" id="h-expl">
-    <div class="ms-auto w-100 max-width-600">
+  <div class="explanation active" id="h-expl">
+    <div class="ms-auto w-100 max-width-600 ">
       <h3 class="mb-2">Holistic & Human-Centered Relationships</h3>
       <ul class="mb-0">
-        <li>See each learner as a whole person: strengths, challenges, and interests.</li>
+        <li>Each learner is a unique person, with strengths, challenges, and interests.</li>
         <li>Build authentic, trusting connections with learners, mentors, and families.</li>
       </ul>
     </div>
   </div>
 
-  <div class="explanation i-expl" id="i-expl">
+  <div class="explanation" id="i-expl">
     <div class="ms-auto w-100 max-width-600">
       <h3 class="mb-2">Intentional, Intrinsically-Motivated Inquiry</h3>
       <ul class="mb-0">
@@ -136,7 +137,7 @@
     </div>
   </div>
 
-  <div class="explanation v-expl" id="v-expl">
+  <div class="explanation" id="v-expl">
     <div class="ms-auto w-100 max-width-600">
       <h3 class="mb-2">Voice & Values</h3>
       <ul class="mb-0">
@@ -146,7 +147,7 @@
     </div>
   </div>
 
-  <div class="explanation e-expl" id="e-expl">
+  <div class="explanation" id="e-expl">
     <div class="ms-auto w-100 max-width-600">
       <h3 class="mb-2">Empowered, Purposeful Action</h3>
       <ul class="mb-0">
@@ -158,29 +159,25 @@
   </div>
 </section>
 
-
-
-
-<!-- =========================================== Roles =========================================== -->
-<section class="py-8 bg-gradient-bg px-3 px-sm-4 px-md-5">
+<!-- ============================================== Roles ============================================= -->
+<!-- ================================================================================================== -->
+<section class="py-10 bg-gradient-bg px-3 px-sm-4 px-md-5">
   <div class="max-width-1200 mx-auto">
     <h2 class="mb-3">Focus Roles &amp; Areas of Development</h2>
-    <p class="mb-4">At the HIVE, we target four ares of development. We tailor our modify our approach depending on the age category.</p>
+    <p class="mb-4">At the HIVE, we target four ares of development, and we tailor our approach to the age of the learners.</p>
   </div>
 
-  <!-- =========================
-       Desktop: Column-colored table
-       ========================= -->
+  <!-- Table: Desktop Version -->
   <div class="d-none d-lg-block">
     <div class="table-responsive">
       <table class="table hive-table max-width-1200 mx-auto">
         <thead>
           <tr>
             <th scope="col"></th>
-            <th scope="col">Helper Role</th>
-            <th scope="col">Internal Motivation</th>
-            <th scope="col">Voice &amp; Value</th>
-            <th scope="col">Explorer Role</th>
+            <th class="rounded-top-4" scope="col">Helper Role</th>
+            <th class="rounded-top-4" scope="col">Internal Motivation</th>
+            <th class="rounded-top-4" scope="col">Voice &amp; Value</th>
+            <th class="rounded-top-4" scope="col">Explorer Role</th>
           </tr>
         </thead>
         <tbody>
@@ -200,45 +197,43 @@
           </tr>
           <tr class="last-row">
             <th scope="row">Adults</th>
-            <td>Engage in service, coaching, or leadership to strengthen purpose &amp; impact</td>
-            <td>Enhance self-driven learning and purposeful action in personal/professional life</td>
-            <td>Share expertise, mentor, and shape communities or organizations</td>
-            <td>Seek personal growth, higher education, or career transitions for broader impact</td>
+            <td class="rounded-bottom-4">Engage in service, coaching, or leadership to strengthen purpose &amp; impact</td>
+            <td class="rounded-bottom-4">Enhance self-driven learning and purposeful action in personal/professional life</td>
+            <td class="rounded-bottom-4">Share expertise, mentor, and shape communities or organizations</td>
+            <td class="rounded-bottom-4">Seek personal growth, higher education, or career transitions for broader impact</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- =========================
-       Mobile: Tabs with two-column rows
-       ========================= -->
+  <!-- Table: Mobile Version -->
   <div class="d-lg-none hive-table-mobile">
     <!-- Tab headers (keep each tab colored) -->
     <ul class="nav nav-tabs d-flex flex-nowrap align-items-end" id="hiveTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link roles-tab-1 active fs-6" id="helper-tab"
+        <button class="nav-link roles-tab-1 active fs-6 rounded-top-4" id="helper-tab"
                 data-bs-toggle="tab" data-bs-target="#helper" type="button" role="tab"
                 aria-controls="helper" aria-selected="true">
           Helper Role
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link roles-tab-2 fs-6" id="motivation-tab"
+        <button class="nav-link roles-tab-2 fs-6 rounded-top-4" id="motivation-tab"
                 data-bs-toggle="tab" data-bs-target="#motivation" type="button" role="tab"
                 aria-controls="motivation" aria-selected="false">
           Internal Motivation
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link roles-tab-3 fs-6" id="voice-tab"
+        <button class="nav-link roles-tab-3 fs-6 rounded-top-4" id="voice-tab"
                 data-bs-toggle="tab" data-bs-target="#voice" type="button" role="tab"
                 aria-controls="voice" aria-selected="false">
           Voice &amp; Value
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link roles-tab-4 fs-6" id="explorer-tab"
+        <button class="nav-link roles-tab-4 fs-6 rounded-top-4" id="explorer-tab"
                 data-bs-toggle="tab" data-bs-target="#explorer" type="button" role="tab"
                 aria-controls="explorer" aria-selected="false">
           Explorer Role
@@ -248,13 +243,13 @@
 
     <div class="tab-content" id="hiveTabContent">
       <!-- Helper Role -->
-      <div class="tab-pane show active bg-yellow-translucent p-3" id="helper" role="tabpanel" aria-labelledby="helper-tab">
+      <div class="tab-pane rounded-bottom-4 show active bg-yellow-translucent p-3" id="helper" role="tabpanel" aria-labelledby="helper-tab">
         <div class="row g-2 mb-2">
-          <div class="col-4 fw-bold">Young Learners</div>
+          <div class="col-4 fw-bold">Kids</div>
           <div class="col-8">Develop empathy &amp; self-awareness through peer support and community activities</div>
         </div>
         <div class="row g-2 mb-2">
-          <div class="col-4 fw-bold">Adolescents / Teens</div>
+          <div class="col-4 fw-bold">Teens</div>
           <div class="col-8">Deepen personal growth via structured volunteer roles and mentorship</div>
         </div>
         <div class="row g-2">
@@ -264,13 +259,13 @@
       </div>
 
       <!-- Internal Motivation -->
-      <div class="tab-pane bg-purple-translucent p-3" id="motivation" role="tabpanel" aria-labelledby="motivation-tab">
+      <div class="tab-pane rounded-bottom-4 bg-purple-translucent p-3" id="motivation" role="tabpanel" aria-labelledby="motivation-tab">
         <div class="row g-2 mb-2">
-          <div class="col-4 fw-bold">Young Learners</div>
+          <div class="col-4 fw-bold">Kids</div>
           <div class="col-8">Cultivate curiosity, initiative &amp; persistence through play and projects</div>
         </div>
         <div class="row g-2 mb-2">
-          <div class="col-4 fw-bold">Adolescents / Teens</div>
+          <div class="col-4 fw-bold">Teens</div>
           <div class="col-8">Strengthen self-direction, goal-setting, and resilience</div>
         </div>
         <div class="row g-2">
@@ -280,13 +275,13 @@
       </div>
 
       <!-- Voice & Value -->
-      <div class="tab-pane bg-blue-translucent p-3" id="voice" role="tabpanel" aria-labelledby="voice-tab">
+      <div class="tab-pane rounded-bottom-4 bg-blue-translucent p-3" id="voice" role="tabpanel" aria-labelledby="voice-tab">
         <div class="row g-2 mb-2">
-          <div class="col-4 fw-bold">Young Learners</div>
+          <div class="col-4 fw-bold">Kids</div>
           <div class="col-8">Express ideas, make choices, and recognize contributions</div>
         </div>
         <div class="row g-2 mb-2">
-          <div class="col-4 fw-bold">Adolescents / Teens</div>
+          <div class="col-4 fw-bold">Teens</div>
           <div class="col-8">Advocate for self &amp; others: develop leadership &amp; decision-making</div>
         </div>
         <div class="row g-2">
@@ -296,13 +291,13 @@
       </div>
 
       <!-- Explorer Role -->
-      <div class="tab-pane bg-green-translucent p-3" id="explorer" role="tabpanel" aria-labelledby="explorer-tab">
+      <div class="tab-pane rounded-bottom-4 bg-green-translucent p-3" id="explorer" role="tabpanel" aria-labelledby="explorer-tab">
         <div class="row g-2 mb-2">
-          <div class="col-4 fw-bold">Young Learners</div>
+          <div class="col-4 fw-bold">Kids</div>
           <div class="col-8">Encourage curiosity, experimentation, exposure to new ideas</div>
         </div>
         <div class="row g-2 mb-2">
-          <div class="col-4 fw-bold">Adolescents / Teens</div>
+          <div class="col-4 fw-bold">Teens</div>
           <div class="col-8">Explore educational paths, extracurriculars, and career options</div>
         </div>
         <div class="row g-2">
@@ -314,43 +309,19 @@
   </div>
 </section>
 
-
-
-
-<!-- =========================================== Contact =========================================== -->
-<section class="contact py-8 px-3 px-sm-4 px-md-5" id="contact">
+<!-- ============================================= Contact ============================================ -->
+<!-- ================================================================================================== -->
+<section class="contact py-10 px-3 px-sm-4 px-md-5" id="contact">
   <div class="mx-auto max-width-1200">
     <!-- Headline -->
     <div class="mb-4">
-      <h2 class="mb-2">Are you ready to join the HIVE?</h2>
-      <p class="mb-0">Reach out and we'll find the right program for you.</p>
+      <h2 class="mb-2">Join the Mignone HIVE</h2>
+      <p class="mb-0">Kids, teens, and adults, there’s a place for everyone. Let’s find your fit.</p>
     </div>
 
     <div class="row g-5">
-      <!-- Left Column: Contact Info + Social -->
-      <div class="col-lg-4">
-        <h3 class="mb-3">Contact Information</h3>
-        <p class="mb-2"><i class="bi bi-telephone"></i> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-        <p class="mb-4"><i class="bi bi-geo-alt"></i> 123 Hive Street, Learning City, CA</p>
 
-        <!-- Social Links -->
-        <h3 class="fw-bold mb-3 mt-4">Connect with us</h3>
-        <div class="d-flex gap-4">
-          <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="color-yellow bi bi-linkedin fs-2"></i></a>
-          <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="color-purple bi bi-instagram fs-2"></i></a>
-          <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok"><i class="color-blue bi bi-tiktok fs-2"></i></a>
-        </div>
-
-        <!-- Hours -->
-        <h3 class="fw-bold">Business Hours</h3>
-        <ul class="list-unstyled">
-          <li>Mon – Fri: 9:00 AM – 6:00 PM</li>
-          <li>Saturday: 10:00 AM – 4:00 PM</li>
-          <li>Sunday: Closed</li>
-        </ul>
-      </div>
-
-      <!-- Right Column: Contact Form -->
+      <!-- Left Column: Contact Form -->
       <div class="col-lg-8">
         <h3 class="fw-bold mb-3">Send us a message</h3>
         <form>
@@ -368,6 +339,34 @@
           </div>
           <button type="submit" class="btn bg-green-gradient">Send Message</button>
         </form>
+      </div>
+
+      <!-- Right Column: Contact Info + Social -->
+      <div class="col-lg-4">
+        <h3 class="mb-3">Contact Information</h3>
+        <p class="mb-2"><i class="bi bi-telephone color-purple"></i> <a href="tel:+16198203475">(619) 820-3475</a></p>
+        <p class="mb-4"><i class="bi bi-geo-alt color-blue"></i> 
+          <a href="https://maps.google.com?q=1750+E+Palomar+St+Suite+7,+Chula+Vista,+CA+91913" target="_blank">
+            1750 E. Palomar St. Suite 7, Chula Vista, CA
+          </a>
+        </p>
+
+        <!-- Social Links -->
+        <h3 class="fw-bold mb-3 mt-4">Connect with us</h3>
+        <div class="d-flex gap-4 mb-4">
+          <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="color-yellow bi bi-linkedin fs-2"></i></a>
+          <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="color-purple bi bi-instagram fs-2"></i></a>
+          <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok"><i class="color-blue bi bi-tiktok fs-2"></i></a>
+          <a href="https://www.x.com" target="_blank" aria-label="X"><i class="color-green bi bi-twitter-x fs-2"></i></a>
+        </div>
+
+        <!-- Hours -->
+        <h3 class="fw-bold">Business Hours</h3>
+        <ul class="list-unstyled">
+          <li>Mon – Fri: 9:00 AM – 6:00 PM</li>
+          <li>Saturday: 10:00 AM – 4:00 PM</li>
+          <li>Sunday: Closed</li>
+        </ul>
       </div>
     </div>
   </div>
