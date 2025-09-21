@@ -27,18 +27,18 @@
 .hex-2  { left: 10%; top: 11%; width: clamp(77px, 4.5vw, 85px); background: var(--gradient-purple); }
 
 .hex-3  { left: 39%; top: 18%; width: clamp(171px, 10vw, 190px); background: var(--gradient-green); }
-.hex-4  { left: 48%; top: 9%;  width: clamp(225px, 13vw, 250px); background-image: url('/images/1.jpg'); background-size: cover; }
+.hex-4  { left: 48%; top: 9%;  width: clamp(225px, 13vw, 250px); background-image: url('/images/gallery/thumbnails/1.webp'); background-size: cover; }
 
 .hex-5  { left: 73%; top: 21%; width: clamp(80px, 5.5vw, 90px); background: var(--gradient-purple); }
 .hex-6  { left: 68%; top: 30%; width: clamp(100px, 7.5vw, 130px); background: var(--gradient-blue); }
 .hex-7  { left: 61%; top: 39%; width: clamp(120px, 9vw, 150px);  background: var(--gradient-yellow); }
 
-.hex-8  { left: 57%; top: 68%; width: clamp(216px, 12vw, 240px); background-image: url('/images/2.jpg'); background-size: cover; }
+.hex-8  { left: 57%; top: 68%; width: clamp(216px, 12vw, 240px); background-image: url('/images/gallery/thumbnails/3.webp'); background-size: cover; }
 .hex-9  { left: 68%; top: 79%; width: clamp(162px, 9vw, 180px);  background: var(--gradient-purple); }
 
-.hex-10 { left: 83%; top: 56%; width: clamp(189px, 10.5vw, 210px); background-image: url('/images/3.jpg'); background-size: cover; }
+.hex-10 { left: 83%; top: 56%; width: clamp(189px, 10.5vw, 210px); background-image: url('/images/gallery/thumbnails/12.webp'); background-size: cover; }
 .hex-11 { left: 88%; top: 43%; width: clamp(131px, 7.2vw, 145px);  background: var(--gradient-green); }
-.hex-12 { left: 80%; top: 40%; width: clamp(144px, 10vw, 165px);   background-image: url('/images/4.jpg'); background-size: cover; }
+.hex-12 { left: 80%; top: 40%; width: clamp(144px, 10vw, 165px);   background-image: url('/images/gallery/thumbnails/16.webp'); background-size: cover; }
 
 .hex-13 { right: 7%; top: 9%;  width: clamp(180px, 15vw, 200px); background: var(--text-background); background-image: url('/images/Logo.svg'); background-size: cover; }
 

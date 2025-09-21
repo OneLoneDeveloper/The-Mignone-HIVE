@@ -1,20 +1,29 @@
 <% layout = 'layouts/main' %>
 <% title = 'Contact Us' %>
-<% styles = ['/css/contact.css'] %>
+
+<style>
+  /* .accordion-item:focus { box-shadow: 0 0 0.25rem 0.25rem var(--yellow);} */ /* Hmmm, I wonder how to select it... */
+  .accordion-button:focus { box-shadow: none; }
+  .accordion-button:not(.collapsed) { box-shadow: none; }
+  .border-yellow .accordion-button:not(.collapsed) { background: var(--yellow-translucent); }
+  .border-purple .accordion-button:not(.collapsed) { background: var(--purple-translucent); }
+  .border-blue .accordion-button:not(.collapsed) { background: var(--blue-translucent); }
+  .border-green .accordion-button:not(.collapsed) { background: var(--green-translucent); }
+</style>
 
 <section class="contact py-8 px-3 px-sm-4 px-md-5" style="margin-top:88px;">
   <div class="mx-auto max-width-1200">
 
     <!-- Headline -->
     <div class="mb-4">
-      <h2 class="mb-2">Get in Touch with the HIVE</h2>
+      <h1 class="mb-2">Get in Touch with the HIVE</h1>
       <p class="mb-0">We’re here to answer your questions and guide you through our programs.</p>
     </div>
 
     <div class="row g-5">
       <!-- Left Column: Contact Form -->
       <div class="col-lg-7">
-        <h3 class="fw-bold mb-3">Send us a message</h3>
+        <h2 class="fw-bold mb-3">Send us a message</h2>
         <form>
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
@@ -42,29 +51,33 @@
             <label for="message" class="form-label">Message</label>
             <textarea class="form-control border-yellow outline-yellow" id="message" rows="5" placeholder="Write your message here..." required></textarea>
           </div>
-          <button type="submit" class="btn bg-green-gradient">Send Message</button>
+          <button type="submit" class="btn bg-purple-gradient">Send Message</button>
         </form>
       </div>
 
       <!-- Right Column: Info -->
       <div class="col-lg-5">
         <!-- Contact Info -->
-        <h3 class="mb-3">Contact Information</h3>
-        <p class="mb-2"><i class="bi bi-telephone"></i> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-        <p class="mb-2"><i class="bi bi-envelope"></i> <a href="mailto:info@hive.org">info@hive.org</a></p>
-        <p class="mb-4"><i class="bi bi-geo-alt"></i> 123 Hive Street, Learning City, CA</p>
+        <h2 class="mb-3">Contact Information</h2>
+        <p class="mb-2"><i class="bi bi-telephone color-purple"></i> <a href="tel:+16198203475">(619) 820-3475</a></p>
+        <p class="mb-2"><i class="bi bi-envelope color-blue"></i> <a href="mailto:mignoneserviceemail@gmail.com">mignoneserviceemail@gmail.com</a></p>
+        <p class="mb-4"><i class="bi bi-geo-alt color-green"></i>
+          <a href="https://maps.google.com?q=1750+E+Palomar+St+Suite+7,+Chula+Vista,+CA+91913" target="_blank" rel="noopener">
+            1750 E. Palomar St. Suite 7, Chula Vista, CA
+          </a>
+        </p>
 
         <!-- Social Links -->
-        <h3 class="fw-bold mb-3 mt-4">Connect with us</h3>
-        <div class="d-flex gap-4">
-          <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="color-yellow bi bi-linkedin fs-2"></i></a>
-          <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="color-purple bi bi-instagram fs-2"></i></a>
-          <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok"><i class="color-blue bi bi-tiktok fs-2"></i></a>
-          <a href="https://www.x.com" target="_blank" aria-label="X"><i class="color-green bi bi-twitter-x fs-2"></i></a>
+        <h2 class="fw-bold mb-3 mt-4">Connect with us</h2>
+        <div class="d-flex gap-4 mb-4">
+          <a href="https://www.linkedin.com/company/the-mignone-hive/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="color-yellow bi bi-linkedin fs-2"></i></a>
+          <a href="https://www.instagram.com/themignonehive/" target="_blank" rel="noopener" aria-label="Instagram"><i class="color-purple bi bi-instagram fs-2"></i></a>
+          <a href="https://www.tiktok.com/@themignonehive" target="_blank" rel="noopener" aria-label="TikTok"><i class="color-blue bi bi-tiktok fs-2"></i></a>
+          <a href="https://x.com/themignonehive/" target="_blank" rel="noopener" aria-label="X (formerly Twitter)"><i class="color-green bi bi-twitter-x fs-2"></i></a>
         </div>
 
         <!-- Map -->
-        <h3 class="fw-bold mb-3 mt-4">Find Us</h3>
+        <h2 class="fw-bold mb-3 mt-4">Find Us</h2>
         <div class="ratio ratio-4x3 mb-2 rounded-4 overflow-hidden">
           <iframe
             src="https://www.google.com/maps?q=1750+E+Palomar+St+Suite+7,+Chula+Vista,+CA+91913&output=embed"
@@ -84,7 +97,7 @@
 
       <div class="col-lg-5 order-lg-2">
         <!-- Hours -->
-        <h3 class="fw-bold">Business Hours</h3>
+        <h2 class="fw-bold">Business Hours</h2>
         <ul class="list-unstyled">
           <li>Mon – Fri: 9:00 AM – 6:00 PM</li>
           <li>Saturday: 10:00 AM – 4:00 PM</li>
@@ -94,7 +107,7 @@
 
       <div class="col-lg-7 order-lg-1">
         <!-- Accessibility -->
-          <h3 class="fw-bold">Accessibility Information</h3>
+          <h2 class="fw-bold">Accessibility Information</h2>
           <p>Our facilities are wheelchair accessible, with accessible parking spaces near the entrance. Public transit stops are located within a 5-minute walk. If you need additional accommodations, please let us know in advance so we can assist you.</p>
       </div>
 
@@ -102,38 +115,38 @@
 
     <!-- FAQ -->
     <div class="mt-5">
-      <h3 class="fw-bold mb-3">Frequently Asked Questions</h3>
+      <h2 class="fw-bold mb-3">Frequently Asked Questions</h2>
       <div class="accordion" id="faqAccordion">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="faq1">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+        <div class="accordion-item border-yellow">
+          <h3 class="accordion-header" id="faq1">
+            <button class="accordion-button collapsed outline-yellow" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
               How do I enroll in a program?
             </button>
-          </h2>
-          <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          </h3>
+          <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
             <div class="accordion-body">
               You can enroll directly through our Programs page or contact us for guidance.
             </div>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="faq2">
+        <div class="accordion-item border-purple">
+          <h3 class="accordion-header" id="faq2">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
               Do you offer financial assistance?
             </button>
-          </h2>
+          </h3>
           <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
             <div class="accordion-body">
               Yes, we provide scholarships and sliding-scale options. Reach out for details.
             </div>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="faq3">
+        <div class="accordion-item border-blue">
+          <h3 class="accordion-header" id="faq3">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
               Can I visit before enrolling?
             </button>
-          </h2>
+          </h3>
           <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
             <div class="accordion-body">
               Absolutely! Contact us to schedule a tour of our facilities.
