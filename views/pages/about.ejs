@@ -1,15 +1,17 @@
-/* Move to about.css */
+<% layout = 'layouts/main' %>
+<% title = 'About' %>
+
 <style>
-    .hex-bullet-point { height: 30px; width: auto; }
+  /* Keep local to this page; move to about.css later if desired */
+  .hex-bullet-point { height: 30px; width: auto; }
 </style>
 
-<section class="py-8 px-3 px-sm-4 px-md-5" style="margin-top: 88px;">
+<section class="py-10 px-3 px-sm-4 px-md-5" style="margin-top: 88px;">
   <div class="max-width-1200 mx-auto">
 
     <!-- Header -->
     <div class="mb-5">
-      <h2 class="fw-bold">The Story of The Mignone HIVE</h2>
-      <!-- <p class="lead text-muted">At The Mignone HIVE, We Believe:</p> -->
+      <h1 class="fw-bold mb-0 text-center">The Story of The Mignone HIVE</h1>
     </div>
 
     <!-- Timeline -->
@@ -18,12 +20,11 @@
       <div class="position-absolute d-none d-md-block top-0 bottom-0 start-50 translate-middle-x bg-all-gradient" style="width:4px;"></div>
 
       <!-- Item odd -->
-      <div class="row mb-3">
+      <div class="row mb-4">
         <div class="col-1 col-md-6 d-flex justify-content-md-end">
-          <div class="hexagon hexagon-flat bg-yellow-gradient hex-bullet-point"></div>
+          <div class="hexagon hexagon-flat bg-yellow-gradient hex-bullet-point" aria-hidden="true"></div>
         </div>
-
-         <div class="col-11 col-md-6 rounded-end-4 bg-yellow-translucent">
+        <div class="col-11 col-md-6 rounded-end-4 bg-yellow-translucent">
           <div class="p-3">
             <strong>Early Life:</strong> Founder Daria Mignone Stone grew up as the fifth of eight children in upstate New York, raised by her single mother, Mary, who instilled faith, resilience, and creativity despite financial struggles.
           </div>
@@ -31,12 +32,11 @@
       </div>
 
       <!-- Item even -->
-      <div class="row mb-3">
+      <div class="row mb-4">
         <div class="col-1 col-md-6 order-md-2 d-flex">
-          <div class="hexagon hexagon-flat bg-yellow-gradient hex-bullet-point"></div>
+          <div class="hexagon hexagon-flat bg-yellow-gradient hex-bullet-point" aria-hidden="true"></div>
         </div>
-
-         <div class="col-11 col-md-6 order-md-1 rounded-start-4 bg-yellow-translucent">
+        <div class="col-11 col-md-6 order-md-1 rounded-start-4 bg-yellow-translucent">
           <div class="p-3">
             <strong>Childhood Experiences:</strong> With little access to transportation, the family relied on parks, libraries, church, and thrift finds to nurture imagination, joy, and resourcefulness.
           </div>
@@ -44,40 +44,35 @@
       </div>
 
       <!-- Item odd -->
-      <div class="row mb-3">
+      <div class="row mb-4">
         <div class="col-1 col-md-6 d-flex justify-content-md-end">
-          <div class="hexagon hexagon-flat bg-purple-gradient hex-bullet-point"></div>
+          <div class="hexagon hexagon-flat bg-purple-gradient hex-bullet-point" aria-hidden="true"></div>
         </div>
-
-         <div class="col-11 col-md-6 rounded-end-4 bg-purple-translucent">
+        <div class="col-11 col-md-6 rounded-end-4 bg-purple-translucent">
           <div class="p-3">
-            <strong>Community & Education:</strong> Daria thrived in school, graduating top of her class with AP credits, while their home life emphasized respect, discovery, and creativity.</div>
+            <strong>Community &amp; Education:</strong> Daria thrived in school, graduating top of her class with AP credits, while her home life emphasized respect, discovery, and creativity.
+          </div>
         </div>
       </div>
 
       <!-- Item even -->
-      <div class="row mb-3">
+      <div class="row mb-4">
         <div class="col-1 col-md-6 order-md-2 d-flex">
-          <div class="hexagon hexagon-flat bg-purple-gradient hex-bullet-point"></div>
+          <div class="hexagon hexagon-flat bg-purple-gradient hex-bullet-point" aria-hidden="true"></div>
         </div>
-
-         <div class="col-11 col-md-6 order-md-1 rounded-start-4 bg-purple-translucent">
+        <div class="col-11 col-md-6 order-md-1 rounded-start-4 bg-purple-translucent">
           <div class="p-3">
-            <strong>Awakening to Inequities:</strong> Watching her siblings—some with disabilities or at-risk needs—struggle in the same system revealed the shortcomings of traditional education, shaping her path toward special education.</div>
+            <strong>Awakening to Inequities:</strong> Watching her siblings—some with disabilities or at-risk needs—struggle in the same system revealed the shortcomings of traditional education, shaping her path toward special education.
+          </div>
         </div>
       </div>
 
-
-
-
-
       <!-- Item odd -->
-      <div class="row mb-3">
+      <div class="row mb-4">
         <div class="col-1 col-md-6 d-flex justify-content-md-end">
-          <div class="hexagon hexagon-flat bg-blue-gradient hex-bullet-point"></div>
+          <div class="hexagon hexagon-flat bg-blue-gradient hex-bullet-point" aria-hidden="true"></div>
         </div>
-
-         <div class="col-11 col-md-6 rounded-end-4 bg-blue-translucent">
+        <div class="col-11 col-md-6 rounded-end-4 bg-blue-translucent">
           <div class="p-3">
             <strong>Teaching Career:</strong> As a teacher, Daria saw how schools often failed both students and educators, leaving many needs unmet.
           </div>
@@ -85,50 +80,50 @@
       </div>
 
       <!-- Item even -->
-      <div class="row mb-3">
+      <div class="row mb-4">
         <div class="col-1 col-md-6 order-md-2 d-flex">
-          <div class="hexagon hexagon-flat bg-blue-gradient hex-bullet-point"></div>
+          <div class="hexagon hexagon-flat bg-blue-gradient hex-bullet-point" aria-hidden="true"></div>
         </div>
-
-         <div class="col-11 col-md-6 order-md-1 rounded-start-4 bg-blue-translucent">
+        <div class="col-11 col-md-6 order-md-1 rounded-start-4 bg-blue-translucent">
           <div class="p-3">
-            <strong>Motherhood & Homeschooling:</strong> Becoming a mother deepened her awareness of these gaps, leading her to homeschool her children—an approach rich in learning but limited in social opportunities and specialized support.
+            <strong>Motherhood &amp; Homeschooling:</strong> Becoming a mother deepened her awareness of these gaps, leading her to homeschool her children—an approach rich in learning but limited in social opportunities and specialized support.
           </div>
         </div>
       </div>
 
       <!-- Item odd -->
-      <div class="row mb-3">
+      <div class="row mb-4">
         <div class="col-1 col-md-6 d-flex justify-content-md-end">
-          <div class="hexagon hexagon-flat bg-green-gradient hex-bullet-point"></div>
+          <div class="hexagon hexagon-flat bg-green-gradient hex-bullet-point" aria-hidden="true"></div>
         </div>
-
-         <div class="col-11 col-md-6 rounded-end-4 bg-green-translucent">
+        <div class="col-11 col-md-6 rounded-end-4 bg-green-translucent">
           <div class="p-3">
-            <strong>Vision for a Solution:</strong> Drawing on her experiences, she envisioned an inclusive, community-based model that could unite accessibility, enrichment, and meaningful real-world learning.</div>
+            <strong>Vision for a Solution:</strong> Drawing on her experiences, she envisioned an inclusive, community-based model that could unite accessibility, enrichment, and meaningful real-world learning.
+          </div>
         </div>
       </div>
 
       <!-- Item even -->
-      <div class="row mb-3">
+      <div class="row mb-4">
         <div class="col-1 col-md-6 order-md-2 d-flex">
-          <div class="hexagon hexagon-flat bg-green-gradient hex-bullet-point"></div>
+          <div class="hexagon hexagon-flat bg-green-gradient hex-bullet-point" aria-hidden="true"></div>
         </div>
-
-         <div class="col-11 col-md-6 order-md-1 rounded-start-4 bg-green-translucent">
+        <div class="col-11 col-md-6 order-md-1 rounded-start-4 bg-green-translucent">
           <div class="p-3">
-            <strong>Founding The HIVE:</strong> After years of development, she established The Mignone HIVE, LLC in 2023, launching its first programs in July 2024 in Chula Vista, California.</div>
+            <strong>Founding The HIVE:</strong> After years of development, she established The Mignone HIVE, LLC in 2023, launching its first programs in July 2024 in Chula Vista, California.
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- Values -->
-<section class="py-8 px-3 px-sm-4 px-md-5 bg-gradient-bg">
+<section class="py-10 px-3 px-sm-4 px-md-5 bg-gradient-bg">
   <div class="max-width-1200 mx-auto">
     <div class="mb-4">
-      <h3 class="fw-bold mb-1">We create a world filled with colors, memories, and opportunities.</h3>
+      <h2 class="fw-bold mb-1">We create a world filled with colors, memories, and opportunities.</h2>
     </div>
 
     <ul class="list-unstyled m-0">
@@ -141,7 +136,7 @@
       <!-- 2 -->
       <li class="d-flex align-items-start gap-3 mb-3">
         <div class="hexagon hexagon-flat bg-purple-gradient hex-bullet-point flex-shrink-0" aria-hidden="true"></div>
-        <div>That learning is lifelong — both rigorous and joyful.</div>
+        <div>That learning is lifelong—both rigorous and joyful.</div>
       </li>
 
       <!-- 3 -->
@@ -153,7 +148,7 @@
       <!-- 4 -->
       <li class="d-flex align-items-start gap-3 mb-3">
         <div class="hexagon hexagon-flat bg-green-gradient hex-bullet-point flex-shrink-0" aria-hidden="true"></div>
-        <div>That the most powerful learning comes from internal motivation and curiosity — never coercion.</div>
+        <div>That the most powerful learning comes from internal motivation and curiosity—never coercion.</div>
       </li>
 
       <!-- 5 -->
@@ -165,25 +160,25 @@
       <!-- 6 -->
       <li class="d-flex align-items-start gap-3 mb-3">
         <div class="hexagon hexagon-flat bg-purple-gradient hex-bullet-point flex-shrink-0" aria-hidden="true"></div>
-        <div>In the power of purpose — and the joy of serving others with it.</div>
+        <div>In the power of purpose—and the joy of serving others with it.</div>
       </li>
 
       <!-- 7 -->
       <li class="d-flex align-items-start gap-3 mb-3">
         <div class="hexagon hexagon-flat bg-blue-gradient hex-bullet-point flex-shrink-0" aria-hidden="true"></div>
-        <div>That a learner’s greatest strengths can also be their challenges — success comes through authentic self-understanding, self-regulation, and communication.</div>
+        <div>That a learner’s greatest strengths can also be their challenges—success comes through authentic self-understanding, self-regulation, and communication.</div>
       </li>
 
       <!-- 8 -->
       <li class="d-flex align-items-start gap-3 mb-3">
         <div class="hexagon hexagon-flat bg-green-gradient hex-bullet-point flex-shrink-0" aria-hidden="true"></div>
-        <div>In the strength of community — every learner should know they are part of something bigger than themselves.</div>
+        <div>In the strength of community—every learner should know they are part of something bigger than themselves.</div>
       </li>
 
       <!-- 9 -->
       <li class="d-flex align-items-start gap-3">
         <div class="hexagon hexagon-flat bg-yellow-gradient hex-bullet-point flex-shrink-0" aria-hidden="true"></div>
-        <div>That collaborative problem solving empowers us all — together, we can make a difference.</div>
+        <div>That collaborative problem-solving empowers us all—together, we can make a difference.</div>
       </li>
     </ul>
   </div>
