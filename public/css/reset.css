@@ -1,4 +1,18 @@
 /* ===============================
+   SPACE SCHEME
+   =============================== */
+/* 
+section -> py-10 px-3 px-sm-4 px-md-5
+h1 -> mb-5
+sections of text -> mb-5
+h2 -> mb-4
+h3, h4, h5, h6 -> m3-4
+inside cells/cards
+p -> mb-2
+
+ */
+
+/* ===============================
    RESET + VARIABLES
    =============================== */
 :root {
@@ -93,6 +107,8 @@
 
 /* Set base font + smoothing */
 html, body { font-family: var(--font-primary); color: var(--black); }
+
+section { overflow-x: hidden; }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 { font-family: var(--font-secondary); font-weight: 600; color: var(--dark-grey); }

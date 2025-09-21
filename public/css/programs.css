@@ -104,7 +104,7 @@
 .lightbox .prev { left: 20px; }
 .lightbox .next { right: 20px; }
 
-.lightbox .prev:hover,
+/* .lightbox .prev:hover,
 .lightbox .next:hover {
   color: #f1c40f;
-}
+} */

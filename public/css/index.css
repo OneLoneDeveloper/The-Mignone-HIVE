@@ -121,7 +121,7 @@
 
 /* .hive-table, */
 .hive-table th,
-.hive-table td { border: 0 !important; padding: 2rem 1rem; }
+.hive-table td { border: 0 !important; }
 .hive-table > :not(caption) > * > * { border-bottom-width: 0 !important; background: none; }
 
 /* Column backgrounds */
