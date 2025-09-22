@@ -5,4 +5,10 @@
 4- standardize margins/paddings
 5- make text centered? 
 7- Space between table cells, bordered areas, and shaded areas
-8-
+8- Stylize Bootstrap forms validation
+
+
+Important
+1- Set up Payment system.
+2- Make programs more specific.
+3- Ask for accreditation
