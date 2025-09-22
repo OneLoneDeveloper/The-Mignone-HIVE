@@ -8,7 +8,7 @@
   .border-green .accordion-button:not(.collapsed) { background: var(--green-translucent); }
 </style>
 
-<section class="contact py-10 px-3 px-sm-4 px-md-5" style="margin-top:88px;">
+<section class="contact py-10 px-3 px-sm-4 px-md-5 full-height">
   <div class="mx-auto max-width-1200">
 
     <!-- Headline -->
@@ -20,7 +20,7 @@
     <div class="row g-5">
       <!-- Left Column: Contact Form -->
       <div class="col-lg-7">
-        <h2 class="fw-bold mb-4">Send us a message</h2>
+        <h2 class="mb-4">Send us a message</h2>
 
         <form class="needs-validation" novalidate data-contact-form action="/api/contact" method="post">
           <!-- Identify this form + timestamp + honeypot -->
@@ -45,7 +45,7 @@
 
           <div class="mb-4">
             <label for="phone" class="form-label mb-2">Phone</label>
-            <input type="tel" class="form-control border-blue outline-blue" id="phone" name="phone" placeholder="+1 (234) 567-890">
+            <input type="tel" class="form-control border-blue outline-blue" id="phone" name="phone" placeholder="(123) 456-7890">
           </div>
 
           <div class="mb-4">
@@ -94,7 +94,7 @@
         </p>
 
         <!-- Social Links -->
-        <h2 class="fw-bold mb-4 mt-5">Connect with us</h2>
+        <h2 class="mb-4 mt-5">Connect with us</h2>
         <div class="d-flex gap-4 mb-4">
           <a href="https://www.linkedin.com/company/the-mignone-hive/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="color-yellow bi bi-linkedin fs-2"></i></a>
           <a href="https://www.instagram.com/themignonehive/" target="_blank" rel="noopener" aria-label="Instagram"><i class="color-purple bi bi-instagram fs-2"></i></a>
@@ -103,7 +103,7 @@
         </div>
 
         <!-- Map -->
-        <h2 class="fw-bold mb-4 mt-5">Find Us</h2>
+        <h2 class="mb-4 mt-5">Find Us</h2>
         <div class="ratio ratio-4x3 mb-2 rounded-4 overflow-hidden">
           <iframe
             title="Map to The Mignone HIVE"
@@ -122,7 +122,7 @@
     <div class="row g-5 pt-5">
       <div class="col-lg-5 order-lg-2">
         <!-- Hours -->
-        <h2 class="fw-bold mb-3">Business Hours</h2>
+        <h2 class="mb-3">Business Hours</h2>
         <ul class="list-unstyled mb-0">
           <li>Mon – Fri: 9:00 AM – 6:00 PM</li>
           <li>Saturday: 10:00 AM – 4:00 PM</li>
@@ -132,14 +132,14 @@
 
       <div class="col-lg-7 order-lg-1">
         <!-- Accessibility -->
-        <h2 class="fw-bold mb-3">Accessibility Information</h2>
+        <h2 class="mb-3">Accessibility Information</h2>
         <p class="mb-0">Our facilities are wheelchair accessible, with accessible parking spaces near the entrance. Public transit stops are located within a 5-minute walk. If you need additional accommodations, please let us know in advance so we can assist you.</p>
       </div>
     </div>
 
     <!-- FAQ -->
     <div class="mt-5">
-      <h2 class="fw-bold mb-4">Frequently Asked Questions</h2>
+      <h2 class="mb-4">Frequently Asked Questions</h2>
       <div class="accordion" id="faqAccordion">
         <div class="accordion-item border-yellow">
           <h3 class="accordion-header" id="faq1">
@@ -151,7 +151,7 @@
           </h3>
           <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
             <div class="accordion-body">
-              You can enroll directly through our Programs page or contact us for guidance.
+              You can enroll by reaching out through our contact form, email, or phone. Once we hear from you, we’ll share program dates and details to help you get started.
             </div>
           </div>
         </div>
@@ -161,12 +161,12 @@
             <button class="accordion-button collapsed" type="button"
                     data-bs-toggle="collapse" data-bs-target="#collapse2"
                     aria-expanded="false" aria-controls="collapse2">
-              Do you offer financial assistance?
+              What ages can join your programs?
             </button>
           </h3>
           <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
             <div class="accordion-body">
-              Yes, we provide scholarships and sliding-scale options. Reach out for details.
+              Our programs are open to learners ages 3½ to 21. We also make exceptions for siblings of current students and for alumni who want to continue with us.
             </div>
           </div>
         </div>
@@ -181,10 +181,59 @@
           </h3>
           <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
             <div class="accordion-body">
-              Absolutely! Contact us to schedule a tour of our facilities.
+              Absolutely! Contact us to schedule a tour of our physical location.
             </div>
           </div>
         </div>
+
+        <!-- Question 4 -->
+        <div class="accordion-item border-green">
+          <h3 class="accordion-header" id="faq4">
+            <button class="accordion-button collapsed" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapse4"
+                    aria-expanded="false" aria-controls="collapse4">
+              What is the scope of your work, and what happens during a typical session?
+            </button>
+          </h3>
+          <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              At the Mignone HIVE, each session is shaped around the needs of the learner. Activities may include group outings, creative workshops, or skill-building classes that naturally weave in social and emotional growth. We also support families with in-home guidance and provide training that helps learners build confidence for both school and work.
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="accordion-item border-yellow">
+          <h3 class="accordion-header" id="faq5">
+            <button class="accordion-button collapsed" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapse5"
+                    aria-expanded="false" aria-controls="collapse5">
+              Where do your programs take place?
+            </button>
+          </h3>
+          <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Our programs happen in a variety of settings to best support each learner. We have a physical location where sessions are held, along with community spaces like parks, libraries, beaches, and the zoo. Families can also receive virtual guidance at home, and older learners may join vocational training or internships that meet in places such as libraries or coffee shops.
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="accordion-item border-purple">
+          <h3 class="accordion-header" id="faq6">
+            <button class="accordion-button collapsed" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapse6"
+                    aria-expanded="false" aria-controls="collapse6">
+              What are the times and lengths of your programs?
+            </button>
+          </h3>
+          <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="faq6" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Schedules vary by student, but most classes and small outings take place on weekday evenings for about an hour. Families can also choose in-home support sessions scheduled around their availability, while vocational training follows each learner’s work schedule. Larger outings, like trips to the zoo or Balboa Park, are usually on weekends for a few hours, and we plan to add longer day camp options during school breaks.
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
 

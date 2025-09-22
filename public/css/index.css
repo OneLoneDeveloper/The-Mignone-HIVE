@@ -1,11 +1,7 @@
 /* ================================================== Hero Section ================================================== */
 /* ================================================================================================================== */
 .hero {
-  /* Standardize for all pages */
   position: relative;
-  margin-top: 88px;
-  min-height: calc(100vh - 88px);
-  overflow: hidden;
   /* Background image */
   background-image: url('/images/spline.webp');
   background-size: 90% 110%;
@@ -40,7 +36,7 @@
 .hex-11 { left: 88%; top: 43%; width: clamp(131px, 7.2vw, 145px);  background: var(--gradient-green); }
 .hex-12 { left: 80%; top: 40%; width: clamp(144px, 10vw, 165px);   background-image: url('/images/gallery/thumbnails/16.webp'); background-size: cover; }
 
-.hex-13 { right: 7%; top: 9%;  width: clamp(180px, 15vw, 200px); background: var(--text-background); background-image: url('/images/Logo.svg'); background-size: cover; }
+.hex-13 { right: 7%; top: 9%;  width: clamp(180px, 15vw, 200px); background: var(--text-background); background-image: url('/images/gallery/thumbnails/11.webp'); background-size: cover; }
 
 .decoration-1 { z-index: 1; width: 20%; position: absolute; left: 15%; bottom: 0; }
 

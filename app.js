@@ -16,15 +16,22 @@ app.set("layout", "layouts/main"); // default layout
 // Static files
 app.use(express.static(path.join(__dirname, "public")));
 
+// Parse form data
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 // API routes
 app.use("/api", contactRoutes);
 
 // Page routes
-app.get("/", (req, res) => { res.render("pages/index", { title: "The Mignone HIVE" }); });
-app.get("/programs", (req, res) => { res.render("pages/programs", { title: "Programs" }); });
-app.get("/about", (req, res) => { res.render("pages/about", { title: "About Us" }); });
-app.get("/contact", (req, res) => { res.render("pages/contact", { title: "Contact Us" }); });
-app.get("/test", (req, res) => { res.render("pages/test", { title: "test Us" }); });
+app.get("/", (req, res) => { res.render("pages/index", { title: "The Mignone HIVE", description: "Discover The Mignone HIVE: a creative learning community with workshops, classes, and more." }); });
+app.get("/programs", (req, res) => { res.render("pages/programs", { title: "Programs", description: "Explore our programs and classes designed for learners of all ages." }); });
+app.get("/about", (req, res) => { res.render("pages/about", { title: "About Us", description: "Learn about the story and mission behind The Mignone HIVE." }); });
+app.get("/contact", (req, res) => { res.render("pages/contact", { title: "Contact Us", description: "Get in touch with The Mignone HIVE team for inquiries, partnerships, and support." }); });
+
+// Wrong turn
+app.use((req, res) => { res.status(404).render("pages/404", { title: "Page Not Found" }); });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => { console.log(`Server running on http://localhost:${PORT}`); });

@@ -111,11 +111,11 @@ html, body { font-family: var(--font-primary); color: var(--black); }
 section { overflow-x: hidden; }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 { font-family: var(--font-secondary); font-weight: 600; color: var(--dark-grey); }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-secondary); font-weight: normal; color: var(--dark-grey); }
 
 /* Links */
 a { color: var(--black); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a:hover { text-decoration: none; }
 
 /* Buttons (do not change colors) */
 button, .btn { font-family: var(--font-primary); border: none; cursor: pointer; }
@@ -123,8 +123,7 @@ button, .btn { font-family: var(--font-primary); border: none; cursor: pointer; 
 /* Inputs & forms */
 input, textarea, select { font-family: var(--font-primary); }
 
-
-
+.full-height { margin-top: 88px; min-height: calc(100vh - 88px); }
 
 
 
