@@ -30,7 +30,7 @@ app.get("/about", (req, res) => { res.render("pages/about", { title: "About Us",
 app.get("/contact", (req, res) => { res.render("pages/contact", { title: "Contact Us", description: "Get in touch with The Mignone HIVE team for inquiries, partnerships, and support." }); });
 
 // Wrong turn
-app.use((req, res) => { res.status(404).render("pages/404", { title: "Page Not Found" }); });
+app.use((req, res) => { res.status(404).render("pages/404", { title: "Page Not Found", description: "Sorry, this page does not exist..." }); });
 
 
 const PORT = process.env.PORT || 3000;
