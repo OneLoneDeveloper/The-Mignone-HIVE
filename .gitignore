@@ -4,6 +4,9 @@
 # Environment variables
 .env
 
+# Todo
+todo.txt
+
 # Logs
 npm-debug.log*
 yarn-debug.log*
