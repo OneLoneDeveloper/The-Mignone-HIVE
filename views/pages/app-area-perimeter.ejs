@@ -1,6 +1,6 @@
 <section class="py-10 px-3 px-sm-4 px-md-5">
   <div class="mb-4 text-center">
-    <h1 class="mb-3">📐 Area & Perimeter Playground</h1>
+    <h1 class="mb-3">Area & Perimeter Relationship</h1>
     <p class="lead mx-auto" style="max-width:900px">
       Use the sliders/fields or drag the knobs on the rectangle. Lock perimeter or area to see how dimensions respond.
     </p>
@@ -36,9 +36,6 @@
             <input class="form-check-input" type="checkbox" id="lockArea">
             <label class="form-check-label" for="lockArea">Lock area</label>
           </div>
-
-          <!-- (Optional) tweakable minimums – adjust these in JS constants -->
-          <small class="text-muted d-block mt-2">Min limits are enforced while locking to avoid extreme shapes.</small>
         </div>
       </div>
     </div>
@@ -56,12 +53,6 @@
                 <rect id="rect" x="0" y="0" width="320" height="200" rx="4" ry="4"
                       style="fill: rgba(25,135,84,.15); stroke:#198754; stroke-width:2;"></rect>
 
-                <!-- Labels (bigger) -->
-                <text id="labelW" x="160" y="-18" text-anchor="middle" style="fill:#333; font-size:20px; font-weight:600;">w = 8 cm</text>
-                <text id="labelH" x="330" y="100" style="fill:#333; font-size:20px; font-weight:600;">h = 5 cm</text>
-                <!-- Area inside -->
-                <text id="labelArea" x="160" y="100" text-anchor="middle" style="fill:#0f5132; font-size:18px; font-weight:600;">A = 40 cm²</text>
-
                 <!-- Knobs -->
                 <!-- Right-edge width knob (upright rectangle) -->
                 <rect id="handleW" x="320" y="80" width="10" height="40" rx="2" ry="2" style="fill:#0d6efd; cursor:ew-resize;"></rect>
@@ -71,20 +62,50 @@
                 <path id="handleCorner" d="M 304 200 L 320 200 L 320 184" style="stroke:#6f42c1; stroke-width:4; fill:none; cursor:nwse-resize; stroke-linecap:round;"></path>
               </g>
             </svg>
+
+            <div class="row text-nowrap">
+              <div class="col-6 col-lg-3">
+                <div>
+                  <span>Width = </span>
+                  <span id="labelW">8 cm</span>
+                </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                <div>
+                  <span>Height = </span>
+                  <span id="labelH">5 cm</span>
+                </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                <div>
+                  <span>Perimeter = </span>
+                  <span id="labelPerimeter">26 cm</span>
+                </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                <div>
+                  <span>Area = </span>
+                  <span id="labelArea">40 cm²</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
 <script>
 (function () {
   // ---------- Tweakable constants ----------
-  const MIN_W = 1;     // cm
-  const MIN_H = 1;     // cm
+  const MIN_W = 0.1;     // cm
+  const MIN_H = 0.1;     // cm
   const MAX_W = 20;    // cm
   const MAX_H = 20;    // cm
-  const SCALE = 40;    // px per cm (fixed scale)
+  const SCALE = 20;    // px per cm
 
   // ---------- State ----------
   const state = {
@@ -94,6 +115,10 @@
     lockedArea: 8 * 5,
     constraint: 'none' // 'none' | 'perimeter' | 'area'
   };
+
+  // Keep the bottom edge stationary at the initial bottom position:
+  let BOTTOM_PX = MAX_H * SCALE;
+
 
   // ---------- Elements ----------
   const wRange = document.getElementById('widthRange');
@@ -109,6 +134,7 @@
   const labelW = document.getElementById('labelW');
   const labelH = document.getElementById('labelH');
   const labelArea = document.getElementById('labelArea');
+  const labelPerimeter = document.getElementById('labelPerimeter');
 
   const handleW = document.getElementById('handleW');
   const handleH = document.getElementById('handleH');
@@ -124,34 +150,40 @@
   function updateLabels() {
     const P = +(2 * (state.w + state.h)).toFixed(2);
     const A = +(state.w * state.h).toFixed(2);
-    labelW.textContent = `w = ${state.w} cm`;
-    labelH.textContent = `h = ${state.h} cm`;
-    labelArea.textContent = `A = ${A} cm²`;
+    labelW.textContent = `${state.w} cm`;
+    labelH.textContent = `${state.h} cm`;
+    labelArea.textContent = `${A} cm²`;
+    labelPerimeter.textContent = `${P} cm`;
   }
 
   function render() {
     const wpx = state.w * SCALE;
     const hpx = state.h * SCALE;
 
+    // Top edge moves; bottom is fixed at BOTTOM_PX
+    const yTop = BOTTOM_PX - hpx;
+
+    // Rectangle
+    rect.setAttribute('x', 0);
+    rect.setAttribute('y', yTop);
     rect.setAttribute('width', wpx);
     rect.setAttribute('height', hpx);
 
-    // Label positions
-    labelW.setAttribute('x', wpx / 2);
-    labelH.setAttribute('x', wpx + 12);
-    labelH.setAttribute('y', hpx / 2);
-    labelArea.setAttribute('x', wpx / 2);
-    labelArea.setAttribute('y', hpx / 2);
-
     // Knobs
+    // right-edge knob (upright): centered vertically on the rect
     handleW.setAttribute('x', wpx);
-    handleW.setAttribute('y', hpx / 2 - 20);
+    handleW.setAttribute('y', yTop + hpx / 2 - 20);
+
+    // top-edge knob (horizontal): sits on the moving top
     handleH.setAttribute('x', wpx / 2 - 20);
-    handleH.setAttribute('y', hpx);
-    handleCorner.setAttribute('d', `M ${wpx - 16} ${hpx} L ${wpx} ${hpx} L ${wpx} ${hpx - 16}`);
+    handleH.setAttribute('y', yTop - 5);                 // straddles the top edge
+
+    // corner knob (little L) at top-right
+    handleCorner.setAttribute('d', `M ${wpx - 16} ${yTop} L ${wpx} ${yTop} L ${wpx} ${yTop + 16}`);
 
     updateLabels();
   }
+
 
   function respectConstraint(changed) {
     // changed: 'w' | 'h' | 'both'
@@ -239,10 +271,20 @@
   function moveDrag(e) {
     if (!dragMode) return;
     const p = toLocalPoint(e);
-    if (dragMode === 'w')   setWidth(p.x / SCALE, 'w');
-    if (dragMode === 'h')   setHeight(p.y / SCALE, 'h');
-    if (dragMode === 'both'){ setWidth(p.x / SCALE, 'both'); setHeight(p.y / SCALE, 'both'); }
+
+    // Width still measured from left = 0 → right moves
+    if (dragMode === 'w') {
+      setWidth(p.x / SCALE, 'w');
+    } else if (dragMode === 'h') {
+      // Height measured from fixed bottom → top moves
+      setHeight((BOTTOM_PX - p.y) / SCALE, 'h');
+    } else {
+      // Corner: both at once (right + top)
+      setWidth(p.x / SCALE, 'both');
+      setHeight((BOTTOM_PX - p.y) / SCALE, 'both');
+    }
   }
+
   function endDrag() { dragMode = null; }
 
   handleW.addEventListener('pointerdown', e => startDrag('w', e));
