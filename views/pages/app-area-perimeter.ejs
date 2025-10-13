@@ -103,7 +103,7 @@
   // ---------- Tweakable constants ----------
   const MIN_W = 0.1;     // cm
   const MIN_H = 0.1;     // cm
-  const MAX_W = 20;    // cm
+  const MAX_W = 200;    // cm
   const MAX_H = 20;    // cm
   const SCALE = 20;    // px per cm
 
@@ -160,7 +160,7 @@
     const wpx = state.w * SCALE;
     const hpx = state.h * SCALE;
 
-    // Top edge moves; bottom is fixed at BOTTOM_PX
+    // Bottom is fixed at BOTTOM_PX
     const yTop = BOTTOM_PX - hpx;
 
     // Rectangle
@@ -176,7 +176,7 @@
 
     // top-edge knob (horizontal): sits on the moving top
     handleH.setAttribute('x', wpx / 2 - 20);
-    handleH.setAttribute('y', yTop - 5);                 // straddles the top edge
+    handleH.setAttribute('y', yTop - 5);
 
     // corner knob (little L) at top-right
     handleCorner.setAttribute('d', `M ${wpx - 16} ${yTop} L ${wpx} ${yTop} L ${wpx} ${yTop + 16}`);
@@ -186,9 +186,8 @@
 
 
   function respectConstraint(changed) {
-    // changed: 'w' | 'h' | 'both'
     if (state.constraint === 'perimeter') {
-      const half = state.lockedPerimeter / 2; // w + h must equal this
+      const half = state.lockedPerimeter / 2;
       if (changed === 'w' || changed === 'both') {
         let h = +(half - state.w).toFixed(2);
         h = clamp(h, MIN_H, MAX_H);
@@ -196,7 +195,7 @@
         w = clamp(w, MIN_W, MAX_W);
         state.h = +(half - w).toFixed(2);
         state.w = +w.toFixed(2);
-      } else { // changed === 'h'
+      } else {
         let w = +(half - state.h).toFixed(2);
         w = clamp(w, MIN_W, MAX_W);
         let h = +(half - w).toFixed(2);
@@ -213,7 +212,7 @@
         w = clamp(w, MIN_W, MAX_W);
         state.h = +(A / w).toFixed(2);
         state.w = +w.toFixed(2);
-      } else { // changed === 'h'
+      } else {
         let w = +(A / state.h).toFixed(2);
         w = clamp(w, MIN_W, MAX_W);
         let h = +(A / w).toFixed(2);
