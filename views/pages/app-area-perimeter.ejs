@@ -13,6 +13,13 @@
         <div class="card-body">
           <h2 class="h5 mb-3">Controls</h2>
 
+          <!-- Zoom -->
+          <div class="mb-3">
+            <label class="form-label" for="zoomRange">Zoom</label>
+            <input id="zoomRange" type="range" class="form-range" min="10" max="300" step="1" value="100" aria-label="Zoom percentage">
+            <div class="form-text"><span id="zoomLabel">100%</span></div>
+          </div>
+
           <!-- Width -->
           <div class="mb-3">
             <label class="form-label" for="widthRange">Width (cm)</label>
@@ -49,17 +56,20 @@
             <svg id="board" width="100%" height="480" viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg"
                  style="background: rgba(255,255,255,0.6); border: 1px solid rgba(0,0,0,.1); border-radius: .5rem; touch-action: none;">
               <g id="scene" transform="translate(60,40)">
-                <!-- Rectangle -->
-                <rect id="rect" x="0" y="0" width="320" height="200" rx="4" ry="4"
-                      style="fill: rgba(25,135,84,.15); stroke:#198754; stroke-width:2;"></rect>
+                <!-- All drawable content gets wrapped in a zoom layer -->
+                <g id="zoomLayer">
+                  <!-- Rectangle -->
+                  <rect id="rect" x="0" y="0" width="320" height="200" rx="4" ry="4"
+                        style="fill: rgba(25,135,84,.15); stroke:#198754; stroke-width:2;"></rect>
 
-                <!-- Knobs -->
-                <!-- Right-edge width knob (upright rectangle) -->
-                <rect id="handleW" x="320" y="80" width="10" height="40" rx="2" ry="2" style="fill:#0d6efd; cursor:ew-resize;"></rect>
-                <!-- Bottom-edge height knob (horizontal rectangle) -->
-                <rect id="handleH" x="140" y="200" width="40" height="10" rx="2" ry="2" style="fill:#0d6efd; cursor:ns-resize;"></rect>
-                <!-- Corner knob (little L corner) -->
-                <path id="handleCorner" d="M 304 200 L 320 200 L 320 184" style="stroke:#6f42c1; stroke-width:4; fill:none; cursor:nwse-resize; stroke-linecap:round;"></path>
+                  <!-- Knobs -->
+                  <!-- Right-edge width knob (upright rectangle) -->
+                  <rect id="handleW" x="320" y="80" width="10" height="40" rx="2" ry="2" style="fill:#0d6efd; cursor:ew-resize;"></rect>
+                  <!-- Top-edge height knob (horizontal rectangle) -->
+                  <rect id="handleH" x="140" y="200" width="40" height="10" rx="2" ry="2" style="fill:#0d6efd; cursor:ns-resize;"></rect>
+                  <!-- Corner knob (little L corner) -->
+                  <path id="handleCorner" d="M 304 200 L 320 200 L 320 184" style="stroke:#6f42c1; stroke-width:4; fill:none; cursor:nwse-resize; stroke-linecap:round;"></path>
+                </g>
               </g>
             </svg>
 
@@ -101,11 +111,19 @@
 <script>
 (function () {
   // ---------- Tweakable constants ----------
-  const MIN_W = 0.1;     // cm
-  const MIN_H = 0.1;     // cm
-  const MAX_W = 200;    // cm
-  const MAX_H = 20;    // cm
-  const SCALE = 20;    // px per cm
+  const MIN_W = 0.01;     // cm
+  const MIN_H = 0.01;     // cm
+  const MAX_W = 200;      // cm
+  const MAX_H = 200;      // cm
+  const BASE_SCALE = 20;  // px per cm at 100% zoom
+
+  // Handle sizes (in screen px; feel free to bump to 32–40 for touch)
+  const HANDLE_SIDE_W = 12;  // right-edge knob width (screen px)
+  const HANDLE_SIDE_H = 36;  // right-edge knob height (screen px)
+  const HANDLE_TOP_W  = 36;  // top-edge knob width (screen px)
+  const HANDLE_TOP_H  = 12;  // top-edge knob height (screen px)
+  const CORNER_ARM    = 16;  // L-corner arm length (screen px)
+  const CORNER_STROKE = 4;   // L-corner line thickness (screen px)
 
   // ---------- State ----------
   const state = {
@@ -113,12 +131,9 @@
     h: 5,
     lockedPerimeter: 2 * (8 + 5),
     lockedArea: 8 * 5,
-    constraint: 'none' // 'none' | 'perimeter' | 'area'
+    constraint: 'none', // 'none' | 'perimeter' | 'area'
+    zoom: 1             // 1 = 100%, range 0.1–3.0
   };
-
-  // Keep the bottom edge stationary at the initial bottom position:
-  let BOTTOM_PX = MAX_H * SCALE;
-
 
   // ---------- Elements ----------
   const wRange = document.getElementById('widthRange');
@@ -128,8 +143,12 @@
   const lockP = document.getElementById('lockPerimeter');
   const lockA = document.getElementById('lockArea');
 
+  const zoomRange = document.getElementById('zoomRange');
+  const zoomLabel = document.getElementById('zoomLabel');
+
   const svg   = document.getElementById('board');
   const scene = document.getElementById('scene');
+  const zoomLayer = document.getElementById('zoomLayer');
   const rect  = document.getElementById('rect');
   const labelW = document.getElementById('labelW');
   const labelH = document.getElementById('labelH');
@@ -146,23 +165,38 @@
 
   // ---------- Helpers ----------
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+  const bottomLocalY = () => 400; // bottom edge in local (unscaled) coords
 
   function updateLabels() {
     const P = +(2 * (state.w + state.h)).toFixed(2);
     const A = +(state.w * state.h).toFixed(2);
-    const W = +(state.w).toFixed(2);
-    const H = +(state.h).toFixed(2);
-    labelW.textContent = `${W} cm`;
-    labelH.textContent = `${H} cm`;
+    labelW.textContent = `${state.w.toFixed(2)} cm`;
+    labelH.textContent = `${state.h.toFixed(2)} cm`;
     labelArea.textContent = `${A} cm²`;
     labelPerimeter.textContent = `${P} cm`;
   }
 
-  function render() {
-    const wpx = state.w * SCALE;
-    const hpx = state.h * SCALE;
+  // Apply zoom around the bottom-left corner of the content
+  function applyZoomTransform() {
+    const ax = 0;
+    const ay = bottomLocalY();
+    zoomLayer.setAttribute(
+      'transform',
+      `translate(${ax},${ay}) scale(${state.zoom}) translate(${-ax},${-ay})`
+    );
+  }
 
-    // Bottom is fixed at BOTTOM_PX
+  // Draw geometry in base units (independent of zoom).
+  // Knobs are sized inversely to zoom so they look constant on screen.
+  function render() {
+    const S = BASE_SCALE;
+    const z = state.zoom;
+    const inv = 1 / z;
+
+    const wpx = state.w * S;
+    const hpx = state.h * S;
+
+    const BOTTOM_PX = bottomLocalY();
     const yTop = BOTTOM_PX - hpx;
 
     // Rectangle
@@ -171,21 +205,30 @@
     rect.setAttribute('width', wpx);
     rect.setAttribute('height', hpx);
 
-    // Knobs
-    // right-edge knob (upright): centered vertically on the rect
-    handleW.setAttribute('x', wpx);
-    handleW.setAttribute('y', yTop + hpx / 2 - 20);
+    // --- Handles (constant screen size via inverse scaling) ---
 
-    // top-edge knob (horizontal): sits on the moving top
-    handleH.setAttribute('x', wpx / 2 - 20);
-    handleH.setAttribute('y', yTop - 5);
+    // Right-edge (vertical) knob: sits just to the right of the rect
+    const sideW = HANDLE_SIDE_W * inv;
+    const sideH = HANDLE_SIDE_H * inv;
+    handleW.setAttribute('x', wpx); // keep it outside, to the right
+    handleW.setAttribute('width', sideW);
+    handleW.setAttribute('height', sideH);
+    handleW.setAttribute('y', yTop + (hpx - sideH) / 2);
 
-    // corner knob (little L) at top-right
-    handleCorner.setAttribute('d', `M ${wpx - 16} ${yTop} L ${wpx} ${yTop} L ${wpx} ${yTop + 16}`);
+    // Top-edge (horizontal) knob: centered on top edge
+    const topW = HANDLE_TOP_W * inv;
+    const topH = HANDLE_TOP_H * inv;
+    handleH.setAttribute('width', topW);
+    handleH.setAttribute('height', topH);
+    handleH.setAttribute('x', wpx / 2 - topW / 2);
+    handleH.setAttribute('y', yTop - topH / 2);
+
+    // Corner “L” knob: arms remain constant length on screen
+    const arm = CORNER_ARM * inv;
+    handleCorner.setAttribute('d', `M ${wpx - arm} ${yTop} L ${wpx} ${yTop} L ${wpx} ${yTop + arm}`);
 
     updateLabels();
   }
-
 
   function respectConstraint(changed) {
     if (state.constraint === 'perimeter') {
@@ -241,13 +284,13 @@
     syncInputs(); render();
   }
 
-  // ---------- Events: sliders & fields (kept perfectly in sync) ----------
+  // ---------- Events: sliders & fields ----------
   wRange.addEventListener('input', e => setWidth(e.target.value, 'w'));
   wInput.addEventListener('input', e => setWidth(e.target.value, 'w'));
   hRange.addEventListener('input', e => setHeight(e.target.value, 'h'));
   hInput.addEventListener('input', e => setHeight(e.target.value, 'h'));
 
-  // Locks (mutually exclusive behavior with checkboxes)
+  // Locks (mutually exclusive)
   lockP.addEventListener('change', () => {
     if (lockP.checked) { lockA.checked = false; state.constraint = 'perimeter'; state.lockedPerimeter = +(2 * (state.w + state.h)).toFixed(2); }
     else if (!lockA.checked) state.constraint = 'none';
@@ -259,33 +302,46 @@
     render();
   });
 
+  // Zoom slider (10–300%): transform + re-render (so knobs resize to stay constant)
+  zoomRange.addEventListener('input', (e) => {
+    const pct = clamp(parseInt(e.target.value, 10) || 100, 10, 300);
+    state.zoom = pct / 100;
+    zoomLabel.textContent = `${pct}%`;
+    applyZoomTransform();
+    render(); // <-- important for constant-size knobs
+  });
+
   // ---------- Dragging (knobs) ----------
   let dragMode = null; // 'w' | 'h' | 'both'
+
+  // Corner stroke should not scale; also make it easy to hit
+  handleCorner.setAttribute('vector-effect', 'non-scaling-stroke');
+  handleCorner.setAttribute('stroke-width', CORNER_STROKE);
+  handleCorner.setAttribute('pointer-events', 'stroke');
 
   function toLocalPoint(evt) {
     const pt = svg.createSVGPoint();
     pt.x = evt.clientX; pt.y = evt.clientY;
-    const local = pt.matrixTransform(scene.getScreenCTM().inverse());
+    const ctm = zoomLayer.getScreenCTM();
+    const local = ctm ? pt.matrixTransform(ctm.inverse()) : { x: 0, y: 0 };
     return { x: local.x, y: local.y };
   }
-  function startDrag(mode, e) { dragMode = mode; e.target.setPointerCapture && e.target.setPointerCapture(e.pointerId); }
+  function startDrag(mode, e) { dragMode = mode; if (e.target.setPointerCapture) e.target.setPointerCapture(e.pointerId); }
   function moveDrag(e) {
     if (!dragMode) return;
     const p = toLocalPoint(e);
+    const S = BASE_SCALE;
+    const BOTTOM_PX = bottomLocalY();
 
-    // Width still measured from left = 0 → right moves
     if (dragMode === 'w') {
-      setWidth(p.x / SCALE, 'w');
+      setWidth(p.x / S, 'w');
     } else if (dragMode === 'h') {
-      // Height measured from fixed bottom → top moves
-      setHeight((BOTTOM_PX - p.y) / SCALE, 'h');
+      setHeight((BOTTOM_PX - p.y) / S, 'h');
     } else {
-      // Corner: both at once (right + top)
-      setWidth(p.x / SCALE, 'both');
-      setHeight((BOTTOM_PX - p.y) / SCALE, 'both');
+      setWidth(p.x / S, 'both');
+      setHeight((BOTTOM_PX - p.y) / S, 'both');
     }
   }
-
   function endDrag() { dragMode = null; }
 
   handleW.addEventListener('pointerdown', e => startDrag('w', e));
@@ -293,8 +349,15 @@
   handleCorner.addEventListener('pointerdown', e => startDrag('both', e));
   svg.addEventListener('pointermove', moveDrag);
   document.addEventListener('pointerup', endDrag);
+  document.addEventListener('pointercancel', endDrag);
 
   // ---------- Init ----------
-  syncInputs(); render();
+  (function init() {
+    zoomRange.value = 100;
+    zoomLabel.textContent = '100%';
+    syncInputs();
+    render();
+    applyZoomTransform();
+  })();
 })();
 </script>
