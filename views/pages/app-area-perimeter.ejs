@@ -150,8 +150,10 @@
   function updateLabels() {
     const P = +(2 * (state.w + state.h)).toFixed(2);
     const A = +(state.w * state.h).toFixed(2);
-    labelW.textContent = `${state.w} cm`;
-    labelH.textContent = `${state.h} cm`;
+    const W = +(state.w).toFixed(2);
+    const H = +(state.h).toFixed(2);
+    labelW.textContent = `${W} cm`;
+    labelH.textContent = `${H} cm`;
     labelArea.textContent = `${A} cm²`;
     labelPerimeter.textContent = `${P} cm`;
   }
@@ -189,52 +191,52 @@
     if (state.constraint === 'perimeter') {
       const half = state.lockedPerimeter / 2;
       if (changed === 'w' || changed === 'both') {
-        let h = +(half - state.w).toFixed(2);
+        let h = +(half - state.w);
         h = clamp(h, MIN_H, MAX_H);
-        let w = +(half - h).toFixed(2);
+        let w = +(half - h);
         w = clamp(w, MIN_W, MAX_W);
-        state.h = +(half - w).toFixed(2);
-        state.w = +w.toFixed(2);
+        state.h = +(half - w);
+        state.w = +w;
       } else {
-        let w = +(half - state.h).toFixed(2);
+        let w = +(half - state.h);
         w = clamp(w, MIN_W, MAX_W);
-        let h = +(half - w).toFixed(2);
+        let h = +(half - w);
         h = clamp(h, MIN_H, MAX_H);
-        state.w = +(half - h).toFixed(2);
-        state.h = +h.toFixed(2);
+        state.w = +(half - h);
+        state.h = +h;
       }
     } else if (state.constraint === 'area') {
       const A = state.lockedArea;
       if (changed === 'w' || changed === 'both') {
-        let h = +(A / state.w).toFixed(2);
+        let h = +(A / state.w);
         h = clamp(h, MIN_H, MAX_H);
-        let w = +(A / h).toFixed(2);
+        let w = +(A / h);
         w = clamp(w, MIN_W, MAX_W);
-        state.h = +(A / w).toFixed(2);
-        state.w = +w.toFixed(2);
+        state.h = +(A / w);
+        state.w = +w;
       } else {
-        let w = +(A / state.h).toFixed(2);
+        let w = +(A / state.h);
         w = clamp(w, MIN_W, MAX_W);
-        let h = +(A / w).toFixed(2);
+        let h = +(A / w);
         h = clamp(h, MIN_H, MAX_H);
-        state.w = +(A / h).toFixed(2);
-        state.h = +h.toFixed(2);
+        state.w = +(A / h);
+        state.h = +h;
       }
     }
   }
 
   function syncInputs() {
-    wRange.value = state.w; wInput.value = state.w;
-    hRange.value = state.h; hInput.value = state.h;
+    const W = state.w.toFixed(2); wRange.value = W; wInput.value = W;
+    const H = state.h.toFixed(2); hRange.value = H; hInput.value = H;
   }
 
   function setWidth(val, changedBy='w') {
-    state.w = +clamp(parseFloat(val) || 0, MIN_W, MAX_W).toFixed(2);
+    state.w = +clamp(parseFloat(val) || 0, MIN_W, MAX_W);
     if (state.constraint !== 'none') respectConstraint(changedBy);
     syncInputs(); render();
   }
   function setHeight(val, changedBy='h') {
-    state.h = +clamp(parseFloat(val) || 0, MIN_H, MAX_H).toFixed(2);
+    state.h = +clamp(parseFloat(val) || 0, MIN_H, MAX_H);
     if (state.constraint !== 'none') respectConstraint(changedBy);
     syncInputs(); render();
   }
