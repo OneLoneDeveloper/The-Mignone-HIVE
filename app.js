@@ -30,12 +30,12 @@ app.get("/about", (req, res) => { res.render("pages/about", { title: "About Us",
 app.get("/contact", (req, res) => { res.render("pages/contact", { title: "Contact Us", description: "Get in touch with The Mignone HIVE team for inquiries, partnerships, and support." }); });
 
 
-app.get('/resources/area-perimeter', (req, res) => {
-  res.render('pages/app-area-perimeter', {
-    title: 'Area & Perimeter Playground',
-    description: 'Interactive rectangle to explore area and perimeter.',
-  });
-});
+// app.get('/resources/area-perimeter', (req, res) => {
+//   res.render('pages/app-area-perimeter', {
+//     title: 'Area & Perimeter Playground',
+//     description: 'Interactive rectangle to explore area and perimeter.',
+//   });
+// });
 
 // Wrong turn
 app.use((req, res) => { res.status(404).render("pages/404", { title: "Page Not Found", description: "Sorry, this page does not exist..." }); });

@@ -5,7 +5,7 @@ const closeBtn = document.querySelector(".lightbox .close");
 const prevBtn = document.querySelector(".lightbox .prev");
 const nextBtn = document.querySelector(".lightbox .next");
 
-const numImages = 17;
+const numImages = 35;
 let currentIndex = 0;
 
 // Build grid
