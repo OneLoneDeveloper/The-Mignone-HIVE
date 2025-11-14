@@ -7,6 +7,9 @@ const contactRoutes = require("./routes/contact");
 
 const app = express();
 
+// Google Analytics ID
+app.locals.GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID || "";
+
 // EJS setup
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
