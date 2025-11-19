@@ -31,6 +31,7 @@ app.get("/", (req, res) => { res.render("pages/index", { title: "The Mignone HIV
 app.get("/programs", (req, res) => { res.render("pages/programs", { title: "Programs", description: "Explore our programs and classes designed for learners of all ages." }); });
 app.get("/about", (req, res) => { res.render("pages/about", { title: "About Us", description: "Learn about the story and mission behind The Mignone HIVE." }); });
 app.get("/contact", (req, res) => { res.render("pages/contact", { title: "Contact Us", description: "Get in touch with The Mignone HIVE team for inquiries, partnerships, and support." }); });
+app.get("/policy/refund", (req, res) => { res.render("pages/refund-policy", { title: "Refund & Cancellation Policy", description: "Review The Mignone HIVE’s official Refund & Cancellation Policy for all programs, sessions, and memberships." }); });
 
 
 // app.get('/resources/area-perimeter', (req, res) => {
